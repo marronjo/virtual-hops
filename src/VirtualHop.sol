@@ -1,13 +1,31 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.18;
 
-contract VirtualHop {
+import {Sender} from "./Sender.sol";
+
+contract VirtualHop is Sender {
+
+    constructor(address router, address link) Sender(router, link) {}
 
     /**
      * send message / tokens from source chain
      */
-    function send() external {
-
+    function send(
+        uint64 destinationChainSelector,
+        address receiver,
+        address token,
+        uint256 amount,
+        address feeToken,
+        string memory data
+        ) external returns(bytes32) {
+        return _sendMessage(
+            destinationChainSelector,
+            receiver,
+            token,
+            amount,
+            feeToken,
+            data
+        );
     }
     
     /**
