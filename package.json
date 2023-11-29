@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "@chainlink/contracts": "^0.8.0",
-    "@chainlink/contracts-ccip": "^0.7.6"
+    "@chainlink/contracts-ccip": "^0.7.6",
+    "dotenv": "^16.3.1"
   }
 }
