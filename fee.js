@@ -25,6 +25,20 @@ async function main(){
         let etherValue = ethers.utils.formatEther(fee);
         console.log(etherValue);
     }
+
+
 }
 
 main();
+
+/*
+
+Current output :
+
+0.092182212079807507
+0.077066772353805518
+0.110620313846153846    //very expensive!
+0.016954584615384615
+0.00155580907514299     //tiny fee
+
+*/
