@@ -9,6 +9,8 @@ Avalanche Fuji -
 BNB Testnet -  
 Base Testnet -  
 
+ABI can be found in directory `out/Fee.sol/Fee.json`
+
 External Method : getFee(uint64 chainSelector) returns(uint256)
 
 **Note** chainSelector refers to destination chain.
