@@ -1,6 +1,13 @@
 `Fee.sol`
 
-Current Deployed Address (ETH Sepolia) : 0x46eF928f553Aa7B1158C5A93aD90b4284D6be969
+Current Deployed Addresses 
+
+ETH Sepolia - 0x46eF928f553Aa7B1158C5A93aD90b4284D6be969    
+Optimism Goerli -   
+Polygon Mumbai -  
+Avalanche Fuji -    
+BNB Testnet -  
+Base Testnet -  
 
 External Method : getFee(uint64 chainSelector) returns(uint256)
 
