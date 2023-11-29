@@ -2,6 +2,15 @@ const ethers = require('ethers');
 const Fee = require('./out/Fee.sol/Fee.json');
 require('dotenv').config();
 
+//excluding ETH Sepolia
+const chainSelectors = [
+    '2664363617261496610',   
+    '12532609583862916517',
+    '14767482510784806043',
+    '13264668187771770619',
+    '5790810961207155433'
+]
+
 async function main(){
     var provider = new ethers.providers.JsonRpcProvider(process.env.API_KEY);
 
@@ -11,8 +20,11 @@ async function main(){
         provider
     );
 
-    let fee = await feeContract.getFee('2664363617261496610');
-    console.log(fee);
+    for(const chainSelector of chainSelectors) {
+        let fee = await feeContract.getFee(chainSelector);
+        let etherValue = ethers.utils.formatEther(fee);
+        console.log(etherValue);
+    }
 }
 
 main();
