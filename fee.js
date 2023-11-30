@@ -30,6 +30,7 @@ const chainConfig = [
 ]
 
 //excluding ETH Sepolia
+//if sepolia chain selector is sent to sepolia router, it will throw error!
 const chainSelectors = [
     '2664363617261496610',   
     '12532609583862916517',
@@ -38,8 +39,8 @@ const chainSelectors = [
     '5790810961207155433'
 ]
 
-const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';
-const amount = Math.pow(10,18).toString(); //1ether 10**18
+const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';    //random address to send tokens to
+const amount = Math.pow(10,18).toString();                                  //1ether 10**18
 
 async function main(){
     var provider = new ethers.providers.JsonRpcProvider(process.env.API_KEY_ETH);
