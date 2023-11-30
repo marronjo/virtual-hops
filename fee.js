@@ -2,7 +2,7 @@ const ethers = require('ethers');
 const Fee = require('./out/Fee.sol/Fee.json');
 require('dotenv').config();
 
-const chainConfig = [
+const chainConfigs = [
     {
         "name": "ETH",
         "deployedContract": "0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb",
@@ -58,4 +58,44 @@ async function main(){
     }
 }
 
-main();
+async function getAllFees(){
+    let allFees = []
+    for(const chainConfig of chainConfigs){
+        var provider = new ethers.providers.JsonRpcProvider(chainConfig.rpcEndpoint);
+
+        const feeContract = new ethers.Contract(
+            chainConfig.deployedContract,
+            Fee.abi,
+            provider
+        );
+
+        let fees = getFee(feeContract, chainConfig.name);
+        allFees.push(fees);
+    }
+}
+
+async function getFee(contract, network){
+    let fees = [];
+    for(const chainConfig of getOtherChainConfigs(network)) {
+        let fee = await contract.getFee(chainConfig.chainSelector, amount, destinationAddress);
+        let etherValue = ethers.utils.formatEther(fee);
+        console.log('%s\t ->\t %s\t : %f', network, chainConfig.name, etherValue);
+        fees.push(etherValue);
+    }
+    return fees;
+}
+
+//Get chain config for every network except 'network'
+function getOtherChainConfigs(network){
+    let configs = []
+    for(const chainConfig of chainConfigs){
+        if(network != chainConfig.name){
+            configs.push(chainConfig);
+        }
+    }
+    return configs;
+}
+
+//main();
+
+getAllFees();
