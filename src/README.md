@@ -2,10 +2,10 @@
 
 Current Deployed Addresses 
 
-ETH Sepolia - 0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb    
+ETH Sepolia - 0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb      
 Optimism Goerli -   
 Polygon Mumbai -  
-Avalanche Fuji -    
+Avalanche Fuji - 0xadD2970aAbA4814E572f39c041b3DE04DC9278c3     
 BNB Testnet -  
 Base Testnet -  
 
