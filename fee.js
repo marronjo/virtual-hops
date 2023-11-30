@@ -42,7 +42,7 @@ const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';
 const amount = Math.pow(10,18).toString(); //1ether 10**18
 
 async function main(){
-    var provider = new ethers.providers.JsonRpcProvider(process.env.API_KEY);
+    var provider = new ethers.providers.JsonRpcProvider(process.env.API_KEY_ETH);
 
     const feeContractSepolia = new ethers.Contract(
         '0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb',
