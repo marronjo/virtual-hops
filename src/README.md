@@ -31,3 +31,18 @@ with chain selector `2664363617261496610`
 
 returns: uint256 representation of fee to transfer 1 CCIP BnM token from ETH Sepolia to Optimism Goerli
 
+## Sample Output 
+
+ETH	    ->	    OP	     :      0.22951437691453636
+AVAX	->	    ETH	     :      0.2615557245451515
+POL	    ->	    ETH	     :      0.2599569380054464
+AVAX	->	    OP	     :      0.22951437691453636
+OP	    ->	    ETH	     :      0.2619951757814464
+ETH	    ->	    POL	     :      0.07704943244438013
+POL	    ->	    OP	     :      0.1537206684606844
+AVAX	->	    POL	     :      0.07706286747424805
+OP	    ->	    POL	     :      0.13847551751665557
+ETH	    ->	    AVAX	 :      0.11062031384615384
+POL	    ->	    AVAX	 :      0.11062031384615384
+OP	    ->	    AVAX	 :      0.11062031384615384
+
