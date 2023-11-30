@@ -11,22 +11,23 @@ const chainSelectors = [
     '5790810961207155433'
 ]
 
+const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';
+const amount = Math.pow(10,18).toString(); //1ether 10**18
+
 async function main(){
     var provider = new ethers.providers.JsonRpcProvider(process.env.API_KEY);
 
     const feeContract = new ethers.Contract(
-        '0x46eF928f553Aa7B1158C5A93aD90b4284D6be969',
+        '0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb',
         Fee.abi,
         provider
     );
 
     for(const chainSelector of chainSelectors) {
-        let fee = await feeContract.getFee(chainSelector);
+        let fee = await feeContract.getFee(chainSelector, amount, '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700');
         let etherValue = ethers.utils.formatEther(fee);
         console.log(etherValue);
     }
-
-
 }
 
 main();

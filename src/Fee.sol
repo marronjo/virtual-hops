@@ -8,18 +8,21 @@ contract Fee {
 
     IRouterClient router;
     address immutable linkToken;
+    address immutable transferToken;
 
-     constructor(address _router, address _link){
+     constructor(address _router, address _link, address _transferToken){
         router = IRouterClient(_router);
         linkToken = _link;
+        transferToken = _transferToken;
+
     }
 
-    function getFee(uint64 chainSelector) external view returns(uint256 fee) {
+    function getFee(uint64 chainSelector, uint256 amount, address destination) external view returns(uint256 fee) {
         Client.EVM2AnyMessage memory message = _createCCIPMessage(
-            0xb592b6313f005Ade818FcdE0f64bc42AB23eD700, //random address
+            destination, //random address
             "",
-            0xFd57b4ddBf88a4e07fF4e34C487b99af2Fe82a05, //CCIP BnM token to transfer from source -> dest
-            1e18, // 1 ether
+            transferToken,
+            amount,
             linkToken //LINK token to pay fees
         );
         

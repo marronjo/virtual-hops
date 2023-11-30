@@ -2,7 +2,7 @@
 
 Current Deployed Addresses 
 
-ETH Sepolia - 0x46eF928f553Aa7B1158C5A93aD90b4284D6be969    
+ETH Sepolia - 0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb    
 Optimism Goerli -   
 Polygon Mumbai -  
 Avalanche Fuji -    
@@ -26,7 +26,7 @@ Base Testnet - 5790810961207155433
 
 
 ### Example :
-Call getFee method on deployed contract `0x46eF928f553Aa7B1158C5A93aD90b4284D6be969`
+Call getFee method on deployed contract `0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb`
 with chain selector `2664363617261496610`
 
 returns: uint256 representation of fee to transfer 1 CCIP BnM token from ETH Sepolia to Optimism Goerli
