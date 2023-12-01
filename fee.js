@@ -27,6 +27,12 @@ const chainConfigs = [
         "chainSelector": "14767482510784806043",
         "rpcEndpoint": process.env.API_KEY_AVAX
     },
+    {
+        "network": "BASE",
+        "deployedContract": "0x45776686c138e782fb9ea26ffd54a6c3eaabf677",
+        "chainSelector": "5790810961207155433",
+        "rpcEndpoint": process.env.API_KEY_BASE
+    },
 ]
 
 const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';    //random address to send tokens to
@@ -43,7 +49,7 @@ function getAllFees(){
             provider
         );
 
-        let fees = getFee(feeContract, chainConfig.network);
+        let fees = getFee(feeContract, chainConfig.network)
         allFees.push(fees);
     }
     return allFees;
@@ -52,10 +58,14 @@ function getAllFees(){
 async function getFee(contract, network){
     let fees = [];
     for(const chainConfig of getOtherChainConfigs(network)) {
-        let fee = await contract.getFee(chainConfig.chainSelector, amount, destinationAddress);
-        let etherValue = ethers.utils.formatEther(fee);
+        try{
+            let fee = await contract.getFee(chainConfig.chainSelector, amount, destinationAddress);
+            let etherValue = ethers.utils.formatEther(fee);
         console.log('%s\t ->\t %s\t : %f', network, chainConfig.network, etherValue);
         fees.push(etherValue);
+        } catch{
+            console.error('missing lane : %s -> %s', network, chainConfig.network)
+        }
     }
     return fees;
 }

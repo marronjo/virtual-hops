@@ -2,12 +2,12 @@
 
 Current Deployed Addresses 
 
-ETH Sepolia - 0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb      
+ETH Sepolia - 0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb [block explorer]()      
 Optimism Goerli - 0x45776686c138e782Fb9ea26FFd54A6C3EAAbf677  
 Polygon Mumbai - 0xA52CB4d41bB098BaC3011664D6a4aA740057948f  
 Avalanche Fuji - 0xadD2970aAbA4814E572f39c041b3DE04DC9278c3     
 BNB Testnet -  
-Base Testnet -  
+Base Testnet Goerli -  0x45776686c138e782fb9ea26ffd54a6c3eaabf677
 
 ABI can be found in directory `out/Fee.sol/Fee.json`
 
@@ -22,7 +22,7 @@ Optimism Goerli - 2664363617261496610
 Polygon Mumbai - 12532609583862916517  
 Avalanche Fuji - 14767482510784806043     
 BNB Testnet - 13264668187771770619  
-Base Testnet - 5790810961207155433  
+Base Testnet Goerli - 5790810961207155433  
 
 
 ### Example :
