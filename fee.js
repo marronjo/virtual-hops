@@ -33,6 +33,12 @@ const chainConfigs = [
         "chainSelector": "5790810961207155433",
         "rpcEndpoint": process.env.API_KEY_BASE
     },
+    {
+        "network": "BNB",
+        "deployedContract": "0x45776686c138e782fb9ea26ffd54a6c3eaabf677",
+        "chainSelector": "13264668187771770619",
+        "rpcEndpoint": process.env.API_KEY_BNB
+    }
 ]
 
 const destinationAddress = '0xb592b6313f005Ade818FcdE0f64bc42AB23eD700';    //random address to send tokens to
