@@ -52,3 +52,11 @@ OP	    ->	    AVAX	 :      0.11062031384615384
 [ccip tx](https://ccip.chain.link/msg/0xd26e72889a6bf6f55d38a90919724b9b00a83da50fd91e7a8eb7a90b874bcdac)  
 Sent 'Hello World' from SendHello contract on Avalanche Fuji to EOA account on Base Goerli 
 
+## Sample server call
+
+```bash
+curl --request POST \
+  --url http://localhost:3048/ \
+  --header 'Content-Type: application/json' \
+  --data '{"start":"OP","stop":"BNB"}' 
+```
