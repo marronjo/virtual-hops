@@ -7,6 +7,6 @@
 - BNB : `0xd7deb4959a13999a431D84A7087b53d7bBD8bb80`
 
 ### Successful Cross-Chain Transactions
-- AVAX -> OP -> POL
-  AVAX -> OP [link](https://ccip.chain.link/msg/0xf6e9223e3f7880a241494eadef5d2ae443e19aa56f57cb37bf103ab6c51fd1b5)
-  OP -> POL  [link](https://ccip.chain.link/msg/0xb8d279f30ad51f75ebfc982fe3ffc634f4fc6b3a0f46a18c592db71e0682081f)
+- AVAX -> OP -> POL  
+  AVAX -> OP [link](https://ccip.chain.link/msg/0xf6e9223e3f7880a241494eadef5d2ae443e19aa56f57cb37bf103ab6c51fd1b5)  
+  OP -> POL  [link](https://ccip.chain.link/msg/0xb8d279f30ad51f75ebfc982fe3ffc634f4fc6b3a0f46a18c592db71e0682081f)  
