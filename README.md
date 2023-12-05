@@ -20,4 +20,8 @@ e.g. 0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
 Mnemonic:          test test test test test test test test test test test junk     
 Derivation path:   m/44'/60'/0'/0/    
 
---private-key $PRIVATE_KEY --broadcast --rpc-url $API_KEY_BNB
+
+Run solidity script on live testnet  
+`source .env` - ensure env variables are available.  
+`forge script script/VirtualHop.s.sol:VirtualHopScript --rpc-url $RPC_URL --private-key $PRIVATE_KEY`   
+use custom $RPC_URL e.g. $API_KEY_AVAX for Avalanche RPC Url.  
