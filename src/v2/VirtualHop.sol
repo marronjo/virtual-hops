@@ -15,8 +15,8 @@ contract VirtualHop is CCIPReceiver, Sender {
         uint256 amount;
     }
 
-    event MessageSent(bytes32 messageId);
-    event MessageHopped(bytes32 messageId);  
+    event MessageSent(bytes32 indexed messageId);
+    event MessageHopped(bytes32 indexed messageId);  
 
     constructor(address _router, address _linkToken, address _bnmToken) 
     Sender(_router, _linkToken, _bnmToken) 
@@ -31,7 +31,7 @@ contract VirtualHop is CCIPReceiver, Sender {
         emit MessageHopped(messageId);
     }
 
-    function SendMessage(
+    function sendMessage(
         uint64 chainSelector, 
         address receiver,
         uint256 amount,
