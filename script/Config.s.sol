@@ -26,7 +26,17 @@ contract Config is Script {
             networkConfig = getBNBTestnetConfig();
         }else if(block.chainid == 84531){
             networkConfig = getBaseGoerliConfig();
+        }else if(block.chainid == 31337){
+            networkConfig = getLocalTestnetConfig();
         }
+    }
+
+    function getLocalTestnetConfig() public pure returns(NetworkConfig memory) {
+        return NetworkConfig({
+            router: address(1),
+            linkToken: address(0),
+            bnmToken: address(0)
+        });
     }
 
     function getAvalancheFujiConfig() public pure returns(NetworkConfig memory) {
