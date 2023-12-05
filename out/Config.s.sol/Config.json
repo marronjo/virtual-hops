@@ -140,6 +140,36 @@
     },
     {
       "inputs": [],
+      "name": "getLocalTestnetConfig",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "router",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "linkToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "bnmToken",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct Config.NetworkConfig",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    },
+    {
+      "inputs": [],
       "name": "getOptimismGoerliConfig",
       "outputs": [
         {
@@ -223,13 +253,13 @@
     }
   ],
   "bytecode": {
-    "object": "0x6080604052600b805462ff00ff19166201000117905534801561002157600080fd5b504661a869036100ea57604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e4918101919091525b8051600c80546001600160a01b03199081166001600160a01b03938416179091556020830151600d80548316918416919091179055604090920151600e8054909316911617905561036c565b466101a40361016a57604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f169181019190915261009e565b4662aa36a7036101eb57604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a059181019190915261009e565b46620138810361026c5760408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff409181019190915261009e565b466061036102eb576040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e99181019190915261009e565b4662014a330361036c57604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b169181019190915261009e565b61042d8061037b6000396000f3fe608060405234801561001057600080fd5b50600436106100885760003560e01c80636486ba391161005b5780636486ba391461029c57806390ced42114610313578063e4060edd1461035d578063f8ccbf47146103d457600080fd5b806312e0b2c61461008d5780631fcc269d14610137578063405f34cd146101ae57806360e87f5814610225575b600080fd5b604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f16918101919091525b6040805182516001600160a01b03908116825260208085015182169083015292820151909216908201526060015b60405180910390f35b6040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e991810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e491810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b1691810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a0591810191909152610100565b600c54600d54600e54610333926001600160a01b03908116928116911683565b604080516001600160a01b039485168152928416602084015292169181019190915260600161012e565b60408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff4091810191909152610100565b600b546103e79062010000900460ff1681565b604051901515815260200161012e56fea264697066735822122053a56e36136d7d00a533a6ee8bffecc2f51d887d70bd2a6b745a266080784d0d64736f6c63430008130033",
-    "sourceMap": "120:2746:20:-:0;;;3126:44:2;;;-1:-1:-1;;800:28:1;;;;;304:595:20;;;;;;;;;;330:13;347:5;330:22;327:566;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;998:222;;;;;;;1034:42;998:222;;1101:42;998:222;;;;;;;1167:42;998:222;;;;;;;383:24;367:40;;:13;:40;;-1:-1:-1;;;;;;367:40:20;;;-1:-1:-1;;;;;367:40:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;120:2746;;327:566;426:13;443:3;426:20;423:470;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;1327:222;;;;;;;1363:42;1327:222;;1430:42;1327:222;;;;;;;1496:42;1327:222;;;;;;;477:25;1233:323;423:470;521:13;538:8;521:25;518:375;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;1657:222;;;;;;;1693:42;1657:222;;1760:42;1657:222;;;;;;;1826:42;1657:222;;;;;;;577:26;1562:324;518:375;622:13;639:5;622:22;619:274;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;1985:222;;;;;;;2021:42;1985:222;;2088:42;1985:222;;;;;;;2154:42;1985:222;;;;;;;675:24;1892:322;619:274;718:13;735:2;718:19;715:178;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;2310:222;;;;;;;2346:42;2310:222;;2413:42;2310:222;;;;;;;2479:42;2310:222;;;;;;;768:21;2220:319;715:178;808:13;825:5;808:22;805:88;;120:2746;;;;;;;;;-1:-1:-1;120:2746:20;;;;;;;;;;;;;;2635:222;;;;;;;2671:42;2635:222;;2738:42;2635:222;;;;;;;2804:42;2635:222;;;;;;;861:21;2545:319;805:88;120:2746;;;;;;",
+    "object": "0x6080604052600b805462ff00ff19166201000117905534801561002157600080fd5b504661a869036100ea57604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e4918101919091525b8051600c80546001600160a01b03199081166001600160a01b03938416179091556020830151600d80548316918416919091179055604090920151600e805490931691161790556103ad565b466101a40361016a57604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f169181019190915261009e565b4662aa36a7036101eb57604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a059181019190915261009e565b46620138810361026c5760408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff409181019190915261009e565b466061036102eb576040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e99181019190915261009e565b4662014a330361036c57604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b169181019190915261009e565b46617a69036103ad5760408051606080820183526000808352602080840182905292840181905283519182018452600182529181018290529182015261009e565b610470806103bc6000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c806360e87f581161006657806360e87f58146102685780636486ba39146102df57806390ced42114610356578063e4060edd146103a0578063f8ccbf471461041757600080fd5b806312e0b2c6146100985780631fcc269d1461014257806327c28cb2146101b9578063405f34cd146101f1575b600080fd5b604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f16918101919091525b6040805182516001600160a01b03908116825260208085015182169083015292820151909216908201526060015b60405180910390f35b6040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e99181019190915261010b565b60408051606080820183526000808352602080840182905292840181905283519182018452600182529181018290529182015261010b565b604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e49181019190915261010b565b604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b169181019190915261010b565b604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a059181019190915261010b565b600c54600d54600e54610376926001600160a01b03908116928116911683565b604080516001600160a01b0394851681529284166020840152921691810191909152606001610139565b60408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff409181019190915261010b565b600b5461042a9062010000900460ff1681565b604051901515815260200161013956fea2646970667358221220591ff75f024769547eb9c03597bea1c50e3c2a1c60bdf99e3e9a0288589dae6964736f6c63430008130033",
+    "sourceMap": "120:3072:20:-:0;;;3126:44:2;;;-1:-1:-1;;800:28:1;;;;;304:690:20;;;;;;;;;;330:13;347:5;330:22;327:661;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;1324:222;;;;;;;1360:42;1324:222;;1427:42;1324:222;;;;;;;1493:42;1324:222;;;;;;;383:24;367:40;;:13;:40;;-1:-1:-1;;;;;;367:40:20;;;-1:-1:-1;;;;;367:40:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;120:3072;;327:661;426:13;443:3;426:20;423:565;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;1653:222;;;;;;;1689:42;1653:222;;1756:42;1653:222;;;;;;;1822:42;1653:222;;;;;;;477:25;1559:323;423:565;521:13;538:8;521:25;518:470;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;1983:222;;;;;;;2019:42;1983:222;;2086:42;1983:222;;;;;;;2152:42;1983:222;;;;;;;577:26;1888:324;518:470;622:13;639:5;622:22;619:369;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;2311:222;;;;;;;2347:42;2311:222;;2414:42;2311:222;;;;;;;2480:42;2311:222;;;;;;;675:24;2218:322;619:369;718:13;735:2;718:19;715:273;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;2636:222;;;;;;;2672:42;2636:222;;2739:42;2636:222;;;;;;;2805:42;2636:222;;;;;;;768:21;2546:319;715:273;808:13;825:5;808:22;805:183;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;2961:222;;;;;;;2997:42;2961:222;;3064:42;2961:222;;;;;;;3130:42;2961:222;;;;;;;861:21;2871:319;805:183;901:13;918:5;901:22;898:90;;120:3072;;;;;;;;;-1:-1:-1;120:3072:20;;;;;;;;;;;;;;;;1092:126;;;;;;;1136:1;1092:126;;;;;;;;;;;;954:23;1000:225;898:90;120:3072;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x608060405234801561001057600080fd5b50600436106100885760003560e01c80636486ba391161005b5780636486ba391461029c57806390ced42114610313578063e4060edd1461035d578063f8ccbf47146103d457600080fd5b806312e0b2c61461008d5780631fcc269d14610137578063405f34cd146101ae57806360e87f5814610225575b600080fd5b604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f16918101919091525b6040805182516001600160a01b03908116825260208085015182169083015292820151909216908201526060015b60405180910390f35b6040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e991810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e491810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b1691810191909152610100565b604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a0591810191909152610100565b600c54600d54600e54610333926001600160a01b03908116928116911683565b604080516001600160a01b039485168152928416602084015292169181019190915260600161012e565b60408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff4091810191909152610100565b600b546103e79062010000900460ff1681565b604051901515815260200161012e56fea264697066735822122053a56e36136d7d00a533a6ee8bffecc2f51d887d70bd2a6b745a266080784d0d64736f6c63430008130033",
-    "sourceMap": "120:2746:20:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1233:323;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1327:222:20;;;;;;;1363:42;1327:222;;1430:42;1327:222;;;;;;;1496:42;1327:222;;;;;;;1233:323;;;;284:13:28;;-1:-1:-1;;;;;280:22:28;;;262:41;;363:4;351:17;;;345:24;341:33;;319:20;;;312:63;423:17;;;417:24;413:33;;;391:20;;;384:63;212:2;197:18;1233:323:20;;;;;;;;2220:319;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;2310:222:20;;;;;;;2346:42;2310:222;;2413:42;2310:222;;;;;;;2479:42;2310:222;;;;;;;2220:319;;905:322;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;998:222:20;;;;;;;1034:42;998:222;;1101:42;998:222;;;;;;;1167:42;998:222;;;;;;;905:322;;2545:319;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;2635:222:20;;;;;;;2671:42;2635:222;;2738:42;2635:222;;;;;;;2804:42;2635:222;;;;;;;2545:319;;1562:324;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1657:222:20;;;;;;;1693:42;1657:222;;1760:42;1657:222;;;;;;;1826:42;1657:222;;;;;;;1562:324;;263:34;;;;;;;;;-1:-1:-1;;;;;263:34:20;;;;;;;;;;;;;;-1:-1:-1;;;;;716:15:28;;;698:34;;768:15;;;763:2;748:18;;741:43;820:15;;800:18;;;793:43;;;;648:2;633:18;263:34:20;458:384:28;1892:322:20;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1985:222:20;;;;;;;2021:42;1985:222;;2088:42;1985:222;;;;;;;2154:42;1985:222;;;;;;;1892:322;;800:28:1;;;;;;;;;;;;;;;1012:14:28;;1005:22;987:41;;975:2;960:18;800:28:1;847:187:28",
+    "object": "0x608060405234801561001057600080fd5b50600436106100935760003560e01c806360e87f581161006657806360e87f58146102685780636486ba39146102df57806390ced42114610356578063e4060edd146103a0578063f8ccbf471461041757600080fd5b806312e0b2c6146100985780631fcc269d1461014257806327c28cb2146101b9578063405f34cd146101f1575b600080fd5b604080516060808201835260008083526020808401829052928401528251908101835273eb52e9ae4a9fb37172978642d4c141ef53876f26815273dc2cc710e42857672e7907cf474a69b63b93089f9181019190915273abfe9d11a2f1d61990d1d253ec98b5da00304f16918101919091525b6040805182516001600160a01b03908116825260208085015182169083015292820151909216908201526060015b60405180910390f35b6040805160608082018352600080835260208084018290529284015282519081018352739527e2d01a3064ef6b50c1da1c0cc523803bcff281527384b9b910527ad5c03a9ca831909e21e236ea7b069181019190915273bfa2acd33ed6eec0ed3cc06bf1ac38d22b36b9e99181019190915261010b565b60408051606080820183526000808352602080840182905292840181905283519182018452600182529181018290529182015261010b565b604080516060808201835260008083526020808401829052928401528251908101835273554472a2720e5e7d5d3c817529aba05eed5f82d88152730b9d5d9136855f6fec3c0993fee6e9ce8a2978469181019190915273d21341536c5cf5eb1bcb58f6723ce26e8d8e90e49181019190915261010b565b604080516060808201835260008083526020808401829052928401528251908101835273a8c0c11bf64af62cdca6f93d3769b88bdd7cb93d815273d886e2286fd1073df82462ea1822119600af80b69181019190915273bf9036529123de264bfa0fc7362fe25b650d4b169181019190915261010b565b604080516060808201835260008083526020808401829052928401528251908101835273d0daae2231e9cb96b94c8512223533293c3693bf815273779877a7b0d9e8603169ddbd7836e478b46247899181019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a059181019190915261010b565b600c54600d54600e54610376926001600160a01b03908116928116911683565b604080516001600160a01b0394851681529284166020840152921691810191909152606001610139565b60408051606080820183526000808352602080840182905292840152825190810183527370499c328e1e2a3c41108bd3730f6670a44595d1815273326c977e6efc84e512bb9c30f76e30c160ed06fb9181019190915273f1e3a5842eeef51f2967b3f05d45dd4f4205ff409181019190915261010b565b600b5461042a9062010000900460ff1681565b604051901515815260200161013956fea2646970667358221220591ff75f024769547eb9c03597bea1c50e3c2a1c60bdf99e3e9a0288589dae6964736f6c63430008130033",
+    "sourceMap": "120:3072:20:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1559:323;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1653:222:20;;;;;;;1689:42;1653:222;;1756:42;1653:222;;;;;;;1822:42;1653:222;;;;;;;1559:323;;;;284:13:28;;-1:-1:-1;;;;;280:22:28;;;262:41;;363:4;351:17;;;345:24;341:33;;319:20;;;312:63;423:17;;;417:24;413:33;;;391:20;;;384:63;212:2;197:18;1559:323:20;;;;;;;;2546:319;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;2636:222:20;;;;;;;2672:42;2636:222;;2739:42;2636:222;;;;;;;2805:42;2636:222;;;;;;;2546:319;;1000:225;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;1092:126:20;;;;;;;1136:1;1092:126;;;;;;;;;;;;1000:225;;1231:322;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1324:222:20;;;;;;;1360:42;1324:222;;1427:42;1324:222;;;;;;;1493:42;1324:222;;;;;;;1231:322;;2871:319;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;2961:222:20;;;;;;;2997:42;2961:222;;3064:42;2961:222;;;;;;;3130:42;2961:222;;;;;;;2871:319;;1888:324;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;1983:222:20;;;;;;;2019:42;1983:222;;2086:42;1983:222;;;;;;;2152:42;1983:222;;;;;;;1888:324;;263:34;;;;;;;;;-1:-1:-1;;;;;263:34:20;;;;;;;;;;;;;;-1:-1:-1;;;;;716:15:28;;;698:34;;768:15;;;763:2;748:18;;741:43;820:15;;800:18;;;793:43;;;;648:2;633:18;263:34:20;458:384:28;2218:322:20;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;2311:222:20;;;;;;;2347:42;2311:222;;2414:42;2311:222;;;;;;;2480:42;2311:222;;;;;;;2218:322;;800:28:1;;;;;;;;;;;;;;;1012:14:28;;1005:22;987:41;;975:2;960:18;800:28:1;847:187:28",
     "linkReferences": {}
   },
   "methodIdentifiers": {
@@ -238,11 +268,12 @@
     "getBNBTestnetConfig()": "1fcc269d",
     "getBaseGoerliConfig()": "60e87f58",
     "getEthereumSepoliaConfig()": "6486ba39",
+    "getLocalTestnetConfig()": "27c28cb2",
     "getOptimismGoerliConfig()": "12e0b2c6",
     "getPolygonMumbaiConfig()": "e4060edd",
     "networkConfig()": "90ced421"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"IS_SCRIPT\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAvalancheFujiConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBNBTestnetConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBaseGoerliConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEthereumSepoliaConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOptimismGoerliConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPolygonMumbaiConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"networkConfig\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"script/Config.s.sol\":\"Config\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/\",\":@chainlink/contracts/=node_modules/@chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/Base.sol\":{\"keccak256\":\"0x4ff1a785311017d1eedb1b4737956fa383067ad34eb439abfec1d989754dde1c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f553622969b9fdb930246704a4c10dfaee6b1a4468c142fa7eb9dc292a438224\",\"dweb:/ipfs/QmcxqHnqdQsMVtgsfH9VNLmZ3g7GhgNagfq7yvNCDcCHFK\"]},\"lib/forge-std/src/Script.sol\":{\"keccak256\":\"0x2315be74cc2826f9da401bea3da46a10ad6a6efdf73176d79160b453286d0ed2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://af0d4dc826911d6cb4d6272ed5cbdb6950e1476141cca328e178b808d848789c\",\"dweb:/ipfs/QmV2ytjUEkV84VtdMs1nZqQTBoVE987cHboQMpiha5yo3e\"]},\"lib/forge-std/src/StdChains.sol\":{\"keccak256\":\"0x1419991b2a8eb2de79b9bd2b3c5a0ceb5d7636ab9bcddde0b71701fd6ad47273\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7afc962ec6e60e1ff749cd0d4c671bc3b85386c68d26b824d4a6c6e6e8255e85\",\"dweb:/ipfs/QmWwfj6Qk8QBcnGD45seGnDXtUmC9CYKuPNJCApSjLyPSj\"]},\"lib/forge-std/src/StdCheats.sol\":{\"keccak256\":\"0xa0bac08b3d12d561fadf74c83c69f3ee54fe40e0c7766611766f6db70c202373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://292f1e61a3a60f9f4075d0b567f5123d159b0541b7787e4523597ab57331eb08\",\"dweb:/ipfs/QmatxDNPiYVtLap2nn4Hp3AxzkSzkdAQDirbc5QKCDfde5\"]},\"lib/forge-std/src/StdJson.sol\":{\"keccak256\":\"0x8f914dbd016bd0e318fe2b8bd556fbc8256c7cddc24e3e4fcb9f3c1c1935592d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://19e704df493dde38323303b07d18cadfeb4dcadf1ddc2301add4aea9474fbb5e\",\"dweb:/ipfs/QmZasuGiLK8LHwWtvpqEBxUR6QFY6GdzLMTJ9q7CMf8PNZ\"]},\"lib/forge-std/src/StdMath.sol\":{\"keccak256\":\"0xd90ad4fd8aeaeb8929964e686e769fdedd5eded3fc3815df194a0ab9f91a3fb2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7919b70f636c7b805223992f28ad1ad0145d6c1385b5931a3589aface5fe6c92\",\"dweb:/ipfs/QmY7FRaULwoGgFteF8GawjQJRfasNgpWnU2aiMsFrYpuTC\"]},\"lib/forge-std/src/StdStorage.sol\":{\"keccak256\":\"0x4298f3f4cedaedb07029820b1daad2c03af45379559392201f7bf3ec71105811\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6e062f36d8d1ae3c383ef8975757926eaa9c4de3a92b5f1fe2d12748bcd8db32\",\"dweb:/ipfs/QmcWkv3ia5Ew4DZNcudMNSTNXZ3W2QiXTZunRd44e9BT8z\"]},\"lib/forge-std/src/StdStyle.sol\":{\"keccak256\":\"0x43e2a8a9b9c2574dabe74f11adf6f782df218f463540e3b5b563609fe108597d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://51363ca97404cf4128e1141428949768c31929e75e014b02c85e887fbbb4f1b8\",\"dweb:/ipfs/QmVhtbQc2fU4rRmbcfBtz34mAgG4BAZBsbna1Ca4SkoPsK\"]},\"lib/forge-std/src/StdUtils.sol\":{\"keccak256\":\"0x8758c42ba9d9e46868b796e2330ac239006ede07bd438a4b36dd6f2c47d27dc1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11f5752e0187b1e3631b875efdbe05d45929d05f1c1717105a9115d0a6628140\",\"dweb:/ipfs/QmUKkx9jfsUvjyYBw45RvrW1hTFXDXi2Jv5tbHP86mnzpi\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xdc93a167a7daf54e0954410c16a1f292b4f2c81e642b7a10793c1c8d174d27b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1b723060ff51e7ec5c33ea34da89d9f24631847b639f47016cba61b600efa532\",\"dweb:/ipfs/QmTAd4Jz16mcncFzpfVxic7Tfor3KprvGXt7Tjmxtwtnwu\"]},\"lib/forge-std/src/console.sol\":{\"keccak256\":\"0x91d5413c2434ca58fd278b6e1e79fd98d10c83931cc2596a6038eee4daeb34ba\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ccea707361e48b9b7a161fe81f496b9932bc471e9c4e4e1e9c283f2453cc70\",\"dweb:/ipfs/QmcB66sZhQ6Kz7MUHcLE78YXRUZxoZnnxZjN6yATsbB2ec\"]},\"lib/forge-std/src/console2.sol\":{\"keccak256\":\"0x954646445d1014c3cd85c7918f5e7adeeca5ee44b68c00bafa237e597a4e35ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://516fa3be52da4763147175bfba4be0aa011fadbb0c1afb01f97265bd4cee7973\",\"dweb:/ipfs/QmdixAyMJefx7qePChgdxcBH5MxhmN7vsqPuPLx3CgrVmF\"]},\"lib/forge-std/src/interfaces/IMulticall3.sol\":{\"keccak256\":\"0x7aac1389150499a922d1f9ef5749c908cef127cb2075b92fa17e9cb611263d0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d95ebb7c7c463e08ebc12dab639945752fb2480acfc6e86da32f72732a7fd0c0\",\"dweb:/ipfs/QmNXK8P8oPWwajsQHvAHw3JPyQidPLCGQN3hWu1Lk6PBL2\"]},\"lib/forge-std/src/safeconsole.sol\":{\"keccak256\":\"0xbaf41fdc6c54297e7cd8250e48b0f20eaac918e342a1028cef3f9a52ac086381\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a500ad81dea226f9910e6b50f99a9ff930105e393a692cbfb2185e4cdb4424ae\",\"dweb:/ipfs/QmVbUQpXNMmMWRiy4FvBNczzq46BMGfUoBikvSHNiCxVTq\"]},\"script/Config.s.sol\":{\"keccak256\":\"0x534f8f0f2a3e714d8a1c772c7a11c581c2e271cd05e2654a865863391ff02f60\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://a0a135037a3637ec45eabf15ede22c12a5419f00c26706d5a16889473db8fa91\",\"dweb:/ipfs/QmUvmaCoRSpDpHRQgjtSDJPQvKrCm9ZmtHiMhXGMH8TUiS\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"IS_SCRIPT\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAvalancheFujiConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBNBTestnetConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBaseGoerliConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getEthereumSepoliaConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getLocalTestnetConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOptimismGoerliConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getPolygonMumbaiConfig\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"internalType\":\"struct Config.NetworkConfig\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"networkConfig\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"router\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"linkToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"bnmToken\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"script/Config.s.sol\":\"Config\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/\",\":@chainlink/contracts/=node_modules/@chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"lib/forge-std/src/Base.sol\":{\"keccak256\":\"0x4ff1a785311017d1eedb1b4737956fa383067ad34eb439abfec1d989754dde1c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://f553622969b9fdb930246704a4c10dfaee6b1a4468c142fa7eb9dc292a438224\",\"dweb:/ipfs/QmcxqHnqdQsMVtgsfH9VNLmZ3g7GhgNagfq7yvNCDcCHFK\"]},\"lib/forge-std/src/Script.sol\":{\"keccak256\":\"0x2315be74cc2826f9da401bea3da46a10ad6a6efdf73176d79160b453286d0ed2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://af0d4dc826911d6cb4d6272ed5cbdb6950e1476141cca328e178b808d848789c\",\"dweb:/ipfs/QmV2ytjUEkV84VtdMs1nZqQTBoVE987cHboQMpiha5yo3e\"]},\"lib/forge-std/src/StdChains.sol\":{\"keccak256\":\"0x1419991b2a8eb2de79b9bd2b3c5a0ceb5d7636ab9bcddde0b71701fd6ad47273\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7afc962ec6e60e1ff749cd0d4c671bc3b85386c68d26b824d4a6c6e6e8255e85\",\"dweb:/ipfs/QmWwfj6Qk8QBcnGD45seGnDXtUmC9CYKuPNJCApSjLyPSj\"]},\"lib/forge-std/src/StdCheats.sol\":{\"keccak256\":\"0xa0bac08b3d12d561fadf74c83c69f3ee54fe40e0c7766611766f6db70c202373\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://292f1e61a3a60f9f4075d0b567f5123d159b0541b7787e4523597ab57331eb08\",\"dweb:/ipfs/QmatxDNPiYVtLap2nn4Hp3AxzkSzkdAQDirbc5QKCDfde5\"]},\"lib/forge-std/src/StdJson.sol\":{\"keccak256\":\"0x8f914dbd016bd0e318fe2b8bd556fbc8256c7cddc24e3e4fcb9f3c1c1935592d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://19e704df493dde38323303b07d18cadfeb4dcadf1ddc2301add4aea9474fbb5e\",\"dweb:/ipfs/QmZasuGiLK8LHwWtvpqEBxUR6QFY6GdzLMTJ9q7CMf8PNZ\"]},\"lib/forge-std/src/StdMath.sol\":{\"keccak256\":\"0xd90ad4fd8aeaeb8929964e686e769fdedd5eded3fc3815df194a0ab9f91a3fb2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7919b70f636c7b805223992f28ad1ad0145d6c1385b5931a3589aface5fe6c92\",\"dweb:/ipfs/QmY7FRaULwoGgFteF8GawjQJRfasNgpWnU2aiMsFrYpuTC\"]},\"lib/forge-std/src/StdStorage.sol\":{\"keccak256\":\"0x4298f3f4cedaedb07029820b1daad2c03af45379559392201f7bf3ec71105811\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6e062f36d8d1ae3c383ef8975757926eaa9c4de3a92b5f1fe2d12748bcd8db32\",\"dweb:/ipfs/QmcWkv3ia5Ew4DZNcudMNSTNXZ3W2QiXTZunRd44e9BT8z\"]},\"lib/forge-std/src/StdStyle.sol\":{\"keccak256\":\"0x43e2a8a9b9c2574dabe74f11adf6f782df218f463540e3b5b563609fe108597d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://51363ca97404cf4128e1141428949768c31929e75e014b02c85e887fbbb4f1b8\",\"dweb:/ipfs/QmVhtbQc2fU4rRmbcfBtz34mAgG4BAZBsbna1Ca4SkoPsK\"]},\"lib/forge-std/src/StdUtils.sol\":{\"keccak256\":\"0x8758c42ba9d9e46868b796e2330ac239006ede07bd438a4b36dd6f2c47d27dc1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://11f5752e0187b1e3631b875efdbe05d45929d05f1c1717105a9115d0a6628140\",\"dweb:/ipfs/QmUKkx9jfsUvjyYBw45RvrW1hTFXDXi2Jv5tbHP86mnzpi\"]},\"lib/forge-std/src/Vm.sol\":{\"keccak256\":\"0xdc93a167a7daf54e0954410c16a1f292b4f2c81e642b7a10793c1c8d174d27b6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1b723060ff51e7ec5c33ea34da89d9f24631847b639f47016cba61b600efa532\",\"dweb:/ipfs/QmTAd4Jz16mcncFzpfVxic7Tfor3KprvGXt7Tjmxtwtnwu\"]},\"lib/forge-std/src/console.sol\":{\"keccak256\":\"0x91d5413c2434ca58fd278b6e1e79fd98d10c83931cc2596a6038eee4daeb34ba\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ccea707361e48b9b7a161fe81f496b9932bc471e9c4e4e1e9c283f2453cc70\",\"dweb:/ipfs/QmcB66sZhQ6Kz7MUHcLE78YXRUZxoZnnxZjN6yATsbB2ec\"]},\"lib/forge-std/src/console2.sol\":{\"keccak256\":\"0x954646445d1014c3cd85c7918f5e7adeeca5ee44b68c00bafa237e597a4e35ea\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://516fa3be52da4763147175bfba4be0aa011fadbb0c1afb01f97265bd4cee7973\",\"dweb:/ipfs/QmdixAyMJefx7qePChgdxcBH5MxhmN7vsqPuPLx3CgrVmF\"]},\"lib/forge-std/src/interfaces/IMulticall3.sol\":{\"keccak256\":\"0x7aac1389150499a922d1f9ef5749c908cef127cb2075b92fa17e9cb611263d0a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d95ebb7c7c463e08ebc12dab639945752fb2480acfc6e86da32f72732a7fd0c0\",\"dweb:/ipfs/QmNXK8P8oPWwajsQHvAHw3JPyQidPLCGQN3hWu1Lk6PBL2\"]},\"lib/forge-std/src/safeconsole.sol\":{\"keccak256\":\"0xbaf41fdc6c54297e7cd8250e48b0f20eaac918e342a1028cef3f9a52ac086381\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a500ad81dea226f9910e6b50f99a9ff930105e393a692cbfb2185e4cdb4424ae\",\"dweb:/ipfs/QmVbUQpXNMmMWRiy4FvBNczzq46BMGfUoBikvSHNiCxVTq\"]},\"script/Config.s.sol\":{\"keccak256\":\"0xc2918b117bddffeb95a7b2ef7700a786b18f2db6cbe07e407e2ec0b593fa47b2\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://31a4d850b96d8d88ba75cb6428c7e923528c4bbfccb9644cc221469eb6b88bb8\",\"dweb:/ipfs/QmWMU889H7YtAC22yABpA4azJWkErJ67WmPvfiHokKF9sq\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -363,6 +394,36 @@
           "stateMutability": "pure",
           "type": "function",
           "name": "getEthereumSepoliaConfig",
+          "outputs": [
+            {
+              "internalType": "struct Config.NetworkConfig",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "router",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "linkToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "bnmToken",
+                  "type": "address"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "pure",
+          "type": "function",
+          "name": "getLocalTestnetConfig",
           "outputs": [
             {
               "internalType": "struct Config.NetworkConfig",
@@ -616,10 +677,10 @@
         "license": "MIT"
       },
       "script/Config.s.sol": {
-        "keccak256": "0x534f8f0f2a3e714d8a1c772c7a11c581c2e271cd05e2654a865863391ff02f60",
+        "keccak256": "0xc2918b117bddffeb95a7b2ef7700a786b18f2db6cbe07e407e2ec0b593fa47b2",
         "urls": [
-          "bzz-raw://a0a135037a3637ec45eabf15ede22c12a5419f00c26706d5a16889473db8fa91",
-          "dweb:/ipfs/QmUvmaCoRSpDpHRQgjtSDJPQvKrCm9ZmtHiMhXGMH8TUiS"
+          "bzz-raw://31a4d850b96d8d88ba75cb6428c7e923528c4bbfccb9644cc221469eb6b88bb8",
+          "dweb:/ipfs/QmWMU889H7YtAC22yABpA4azJWkErJ67WmPvfiHokKF9sq"
         ],
         "license": "UNLICENSED"
       }
@@ -628,10 +689,10 @@
   },
   "ast": {
     "absolutePath": "script/Config.s.sol",
-    "id": 39877,
+    "id": 39910,
     "exportedSymbols": {
       "Config": [
-        39876
+        39909
       ],
       "Script": [
         113
@@ -641,7 +702,7 @@
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "39:2828:20",
+    "src": "39:3154:20",
     "nodes": [
       {
         "id": 39712,
@@ -662,7 +723,7 @@
         "absolutePath": "lib/forge-std/src/Script.sol",
         "file": "forge-std/Script.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 39877,
+        "scope": 39910,
         "sourceUnit": 114,
         "symbolAliases": [
           {
@@ -693,9 +754,9 @@
         "unitAlias": ""
       },
       {
-        "id": 39876,
+        "id": 39909,
         "nodeType": "ContractDefinition",
-        "src": "120:2746:20",
+        "src": "120:3072:20",
         "nodes": [
           {
             "id": 39724,
@@ -791,7 +852,7 @@
             ],
             "name": "NetworkConfig",
             "nameLocation": "160:13:20",
-            "scope": 39876,
+            "scope": 39909,
             "visibility": "public"
           },
           {
@@ -804,7 +865,7 @@
             "mutability": "mutable",
             "name": "networkConfig",
             "nameLocation": "284:13:20",
-            "scope": 39876,
+            "scope": 39909,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -834,14 +895,14 @@
             "visibility": "public"
           },
           {
-            "id": 39797,
+            "id": 39808,
             "nodeType": "FunctionDefinition",
-            "src": "304:595:20",
+            "src": "304:690:20",
             "nodes": [],
             "body": {
-              "id": 39796,
+              "id": 39807,
               "nodeType": "Block",
-              "src": "317:582:20",
+              "src": "317:677:20",
               "nodes": [],
               "statements": [
                 {
@@ -1216,9 +1277,144 @@
                                 "typeString": "bool"
                               }
                             },
-                            "id": 39790,
+                            "falseBody": {
+                              "condition": {
+                                "commonType": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                },
+                                "id": 39793,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "leftExpression": {
+                                  "expression": {
+                                    "id": 39790,
+                                    "name": "block",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": -4,
+                                    "src": "901:5:20",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_block",
+                                      "typeString": "block"
+                                    }
+                                  },
+                                  "id": 39791,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberLocation": "907:7:20",
+                                  "memberName": "chainid",
+                                  "nodeType": "MemberAccess",
+                                  "src": "901:13:20",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "nodeType": "BinaryOperation",
+                                "operator": "==",
+                                "rightExpression": {
+                                  "hexValue": "3331333337",
+                                  "id": 39792,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "kind": "number",
+                                  "lValueRequested": false,
+                                  "nodeType": "Literal",
+                                  "src": "918:5:20",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_rational_31337_by_1",
+                                    "typeString": "int_const 31337"
+                                  },
+                                  "value": "31337"
+                                },
+                                "src": "901:22:20",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bool",
+                                  "typeString": "bool"
+                                }
+                              },
+                              "id": 39800,
+                              "nodeType": "IfStatement",
+                              "src": "898:90:20",
+                              "trueBody": {
+                                "id": 39799,
+                                "nodeType": "Block",
+                                "src": "924:64:20",
+                                "statements": [
+                                  {
+                                    "expression": {
+                                      "id": 39797,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "leftHandSide": {
+                                        "id": 39794,
+                                        "name": "networkConfig",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 39727,
+                                        "src": "938:13:20",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage",
+                                          "typeString": "struct Config.NetworkConfig storage ref"
+                                        }
+                                      },
+                                      "nodeType": "Assignment",
+                                      "operator": "=",
+                                      "rightHandSide": {
+                                        "arguments": [],
+                                        "expression": {
+                                          "argumentTypes": [],
+                                          "id": 39795,
+                                          "name": "getLocalTestnetConfig",
+                                          "nodeType": "Identifier",
+                                          "overloadedDeclarations": [],
+                                          "referencedDeclaration": 39830,
+                                          "src": "954:21:20",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
+                                            "typeString": "function () pure returns (struct Config.NetworkConfig memory)"
+                                          }
+                                        },
+                                        "id": 39796,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "nameLocations": [],
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "954:23:20",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
+                                          "typeString": "struct Config.NetworkConfig memory"
+                                        }
+                                      },
+                                      "src": "938:39:20",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage",
+                                        "typeString": "struct Config.NetworkConfig storage ref"
+                                      }
+                                    },
+                                    "id": 39798,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "938:39:20"
+                                  }
+                                ]
+                              }
+                            },
+                            "id": 39801,
                             "nodeType": "IfStatement",
-                            "src": "805:88:20",
+                            "src": "805:183:20",
                             "trueBody": {
                               "id": 39789,
                               "nodeType": "Block",
@@ -1253,7 +1449,7 @@
                                         "name": "getBaseGoerliConfig",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 39875,
+                                        "referencedDeclaration": 39908,
                                         "src": "861:19:20",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1289,9 +1485,9 @@
                               ]
                             }
                           },
-                          "id": 39791,
+                          "id": 39802,
                           "nodeType": "IfStatement",
-                          "src": "715:178:20",
+                          "src": "715:273:20",
                           "trueBody": {
                             "id": 39779,
                             "nodeType": "Block",
@@ -1326,7 +1522,7 @@
                                       "name": "getBNBTestnetConfig",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 39862,
+                                      "referencedDeclaration": 39895,
                                       "src": "768:19:20",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1362,9 +1558,9 @@
                             ]
                           }
                         },
-                        "id": 39792,
+                        "id": 39803,
                         "nodeType": "IfStatement",
-                        "src": "619:274:20",
+                        "src": "619:369:20",
                         "trueBody": {
                           "id": 39769,
                           "nodeType": "Block",
@@ -1399,7 +1595,7 @@
                                     "name": "getPolygonMumbaiConfig",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 39849,
+                                    "referencedDeclaration": 39882,
                                     "src": "675:22:20",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1435,9 +1631,9 @@
                           ]
                         }
                       },
-                      "id": 39793,
+                      "id": 39804,
                       "nodeType": "IfStatement",
-                      "src": "518:375:20",
+                      "src": "518:470:20",
                       "trueBody": {
                         "id": 39759,
                         "nodeType": "Block",
@@ -1472,7 +1668,7 @@
                                   "name": "getEthereumSepoliaConfig",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 39836,
+                                  "referencedDeclaration": 39869,
                                   "src": "577:24:20",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1508,9 +1704,9 @@
                         ]
                       }
                     },
-                    "id": 39794,
+                    "id": 39805,
                     "nodeType": "IfStatement",
-                    "src": "423:470:20",
+                    "src": "423:565:20",
                     "trueBody": {
                       "id": 39749,
                       "nodeType": "Block",
@@ -1545,7 +1741,7 @@
                                 "name": "getOptimismGoerliConfig",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 39823,
+                                "referencedDeclaration": 39856,
                                 "src": "477:23:20",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1581,9 +1777,9 @@
                       ]
                     }
                   },
-                  "id": 39795,
+                  "id": 39806,
                   "nodeType": "IfStatement",
-                  "src": "327:566:20",
+                  "src": "327:661:20",
                   "trueBody": {
                     "id": 39739,
                     "nodeType": "Block",
@@ -1618,7 +1814,7 @@
                               "name": "getAvalancheFujiConfig",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 39810,
+                              "referencedDeclaration": 39843,
                               "src": "383:22:20",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_function_internal_pure$__$returns$_t_struct$_NetworkConfig_$39724_memory_ptr_$",
@@ -1673,20 +1869,336 @@
               "parameters": [],
               "src": "317:0:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39810,
+            "id": 39830,
             "nodeType": "FunctionDefinition",
-            "src": "905:322:20",
+            "src": "1000:225:20",
             "nodes": [],
             "body": {
-              "id": 39809,
+              "id": 39829,
               "nodeType": "Block",
-              "src": "981:246:20",
+              "src": "1075:150:20",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "arguments": [
+                          {
+                            "hexValue": "31",
+                            "id": 39817,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1136:1:20",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_1_by_1",
+                              "typeString": "int_const 1"
+                            },
+                            "value": "1"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_rational_1_by_1",
+                              "typeString": "int_const 1"
+                            }
+                          ],
+                          "id": 39816,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1128:7:20",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 39815,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1128:7:20",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 39818,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1128:10:20",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "hexValue": "30",
+                            "id": 39821,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1171:1:20",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            }
+                          ],
+                          "id": 39820,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1163:7:20",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 39819,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1163:7:20",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 39822,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1163:10:20",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "arguments": [
+                          {
+                            "hexValue": "30",
+                            "id": 39825,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "1205:1:20",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            },
+                            "value": "0"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_rational_0_by_1",
+                              "typeString": "int_const 0"
+                            }
+                          ],
+                          "id": 39824,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "nodeType": "ElementaryTypeNameExpression",
+                          "src": "1197:7:20",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_address_$",
+                            "typeString": "type(address)"
+                          },
+                          "typeName": {
+                            "id": 39823,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "1197:7:20",
+                            "typeDescriptions": {}
+                          }
+                        },
+                        "id": 39826,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "typeConversion",
+                        "lValueRequested": false,
+                        "nameLocations": [],
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "1197:10:20",
+                        "tryCall": false,
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 39814,
+                      "name": "NetworkConfig",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 39724,
+                      "src": "1092:13:20",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
+                        "typeString": "type(struct Config.NetworkConfig storage pointer)"
+                      }
+                    },
+                    "id": 39827,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "nameLocations": [
+                      "1120:6:20",
+                      "1152:9:20",
+                      "1187:8:20"
+                    ],
+                    "names": [
+                      "router",
+                      "linkToken",
+                      "bnmToken"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "1092:126:20",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
+                      "typeString": "struct Config.NetworkConfig memory"
+                    }
+                  },
+                  "functionReturnParameters": 39813,
+                  "id": 39828,
+                  "nodeType": "Return",
+                  "src": "1085:133:20"
+                }
+              ]
+            },
+            "functionSelector": "27c28cb2",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getLocalTestnetConfig",
+            "nameLocation": "1009:21:20",
+            "parameters": {
+              "id": 39809,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1030:2:20"
+            },
+            "returnParameters": {
+              "id": 39813,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 39812,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 39830,
+                  "src": "1053:20:20",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
+                    "typeString": "struct Config.NetworkConfig"
+                  },
+                  "typeName": {
+                    "id": 39811,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 39810,
+                      "name": "NetworkConfig",
+                      "nameLocations": [
+                        "1053:13:20"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 39724,
+                      "src": "1053:13:20"
+                    },
+                    "referencedDeclaration": 39724,
+                    "src": "1053:13:20",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
+                      "typeString": "struct Config.NetworkConfig"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1052:22:20"
+            },
+            "scope": 39909,
+            "stateMutability": "pure",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 39843,
+            "nodeType": "FunctionDefinition",
+            "src": "1231:322:20",
+            "nodes": [],
+            "body": {
+              "id": 39842,
+              "nodeType": "Block",
+              "src": "1307:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -1694,14 +2206,14 @@
                     "arguments": [
                       {
                         "hexValue": "307835353434373261323732304535453744354433433831373532396142413035454564354638324438",
-                        "id": 39804,
+                        "id": 39837,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1034:42:20",
+                        "src": "1360:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1710,14 +2222,14 @@
                       },
                       {
                         "hexValue": "307830623964354439313336383535663646456333633039393366654536453943453861323937383436",
-                        "id": 39805,
+                        "id": 39838,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1101:42:20",
+                        "src": "1427:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1726,14 +2238,14 @@
                       },
                       {
                         "hexValue": "307844323133343135333663356346354542316263623538663637323363453236653844384539306534",
-                        "id": 39806,
+                        "id": 39839,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1167:42:20",
+                        "src": "1493:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1756,27 +2268,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39803,
+                      "id": 39836,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "998:13:20",
+                      "src": "1324:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39807,
+                    "id": 39840,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "1026:6:20",
-                      "1090:9:20",
-                      "1157:8:20"
+                      "1352:6:20",
+                      "1416:9:20",
+                      "1483:8:20"
                     ],
                     "names": [
                       "router",
@@ -1784,17 +2296,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "998:222:20",
+                    "src": "1324:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39802,
-                  "id": 39808,
+                  "functionReturnParameters": 39835,
+                  "id": 39841,
                   "nodeType": "Return",
-                  "src": "991:229:20"
+                  "src": "1317:229:20"
                 }
               ]
             },
@@ -1803,26 +2315,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getAvalancheFujiConfig",
-            "nameLocation": "914:22:20",
+            "nameLocation": "1240:22:20",
             "parameters": {
-              "id": 39798,
+              "id": 39831,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "936:2:20"
+              "src": "1262:2:20"
             },
             "returnParameters": {
-              "id": 39802,
+              "id": 39835,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39801,
+                  "id": 39834,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39810,
-                  "src": "959:20:20",
+                  "scope": 39843,
+                  "src": "1285:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1830,20 +2342,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39800,
+                    "id": 39833,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39799,
+                      "id": 39832,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "959:13:20"
+                        "1285:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "959:13:20"
+                      "src": "1285:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "959:13:20",
+                    "src": "1285:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -1852,22 +2364,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "958:22:20"
+              "src": "1284:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39823,
+            "id": 39856,
             "nodeType": "FunctionDefinition",
-            "src": "1233:323:20",
+            "src": "1559:323:20",
             "nodes": [],
             "body": {
-              "id": 39822,
+              "id": 39855,
               "nodeType": "Block",
-              "src": "1310:246:20",
+              "src": "1636:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -1875,14 +2387,14 @@
                     "arguments": [
                       {
                         "hexValue": "307845423532453941653441394662333731373239373836343264344331343165663533383736663236",
-                        "id": 39817,
+                        "id": 39850,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1363:42:20",
+                        "src": "1689:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1891,14 +2403,14 @@
                       },
                       {
                         "hexValue": "307864633243433731306534323835373637324537393037434634373461363942363342393330383966",
-                        "id": 39818,
+                        "id": 39851,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1430:42:20",
+                        "src": "1756:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1907,14 +2419,14 @@
                       },
                       {
                         "hexValue": "307861426645394431314132663144363139393044316432353345433938423544613030333034463136",
-                        "id": 39819,
+                        "id": 39852,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1496:42:20",
+                        "src": "1822:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1937,27 +2449,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39816,
+                      "id": 39849,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "1327:13:20",
+                      "src": "1653:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39820,
+                    "id": 39853,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "1355:6:20",
-                      "1419:9:20",
-                      "1486:8:20"
+                      "1681:6:20",
+                      "1745:9:20",
+                      "1812:8:20"
                     ],
                     "names": [
                       "router",
@@ -1965,17 +2477,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "1327:222:20",
+                    "src": "1653:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39815,
-                  "id": 39821,
+                  "functionReturnParameters": 39848,
+                  "id": 39854,
                   "nodeType": "Return",
-                  "src": "1320:229:20"
+                  "src": "1646:229:20"
                 }
               ]
             },
@@ -1984,26 +2496,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getOptimismGoerliConfig",
-            "nameLocation": "1242:23:20",
+            "nameLocation": "1568:23:20",
             "parameters": {
-              "id": 39811,
+              "id": 39844,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1265:2:20"
+              "src": "1591:2:20"
             },
             "returnParameters": {
-              "id": 39815,
+              "id": 39848,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39814,
+                  "id": 39847,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39823,
-                  "src": "1288:20:20",
+                  "scope": 39856,
+                  "src": "1614:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2011,20 +2523,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39813,
+                    "id": 39846,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39812,
+                      "id": 39845,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "1288:13:20"
+                        "1614:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "1288:13:20"
+                      "src": "1614:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "1288:13:20",
+                    "src": "1614:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -2033,22 +2545,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1287:22:20"
+              "src": "1613:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39836,
+            "id": 39869,
             "nodeType": "FunctionDefinition",
-            "src": "1562:324:20",
+            "src": "1888:324:20",
             "nodes": [],
             "body": {
-              "id": 39835,
+              "id": 39868,
               "nodeType": "Block",
-              "src": "1640:246:20",
+              "src": "1966:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -2056,14 +2568,14 @@
                     "arguments": [
                       {
                         "hexValue": "307844306461616532323331453943423936623934433835313232323335333332393343333639334266",
-                        "id": 39830,
+                        "id": 39863,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1693:42:20",
+                        "src": "2019:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2072,14 +2584,14 @@
                       },
                       {
                         "hexValue": "307837373938373741374230443945383630333136394464624437383336653437386234363234373839",
-                        "id": 39831,
+                        "id": 39864,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1760:42:20",
+                        "src": "2086:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2088,14 +2600,14 @@
                       },
                       {
                         "hexValue": "307846643537623464644266383861346530376646346533344334383762393961663246653832613035",
-                        "id": 39832,
+                        "id": 39865,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1826:42:20",
+                        "src": "2152:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2118,27 +2630,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39829,
+                      "id": 39862,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "1657:13:20",
+                      "src": "1983:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39833,
+                    "id": 39866,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "1685:6:20",
-                      "1749:9:20",
-                      "1816:8:20"
+                      "2011:6:20",
+                      "2075:9:20",
+                      "2142:8:20"
                     ],
                     "names": [
                       "router",
@@ -2146,17 +2658,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "1657:222:20",
+                    "src": "1983:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39828,
-                  "id": 39834,
+                  "functionReturnParameters": 39861,
+                  "id": 39867,
                   "nodeType": "Return",
-                  "src": "1650:229:20"
+                  "src": "1976:229:20"
                 }
               ]
             },
@@ -2165,26 +2677,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getEthereumSepoliaConfig",
-            "nameLocation": "1571:24:20",
+            "nameLocation": "1897:24:20",
             "parameters": {
-              "id": 39824,
+              "id": 39857,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1595:2:20"
+              "src": "1921:2:20"
             },
             "returnParameters": {
-              "id": 39828,
+              "id": 39861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39827,
+                  "id": 39860,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39836,
-                  "src": "1618:20:20",
+                  "scope": 39869,
+                  "src": "1944:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2192,20 +2704,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39826,
+                    "id": 39859,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39825,
+                      "id": 39858,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "1618:13:20"
+                        "1944:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "1618:13:20"
+                      "src": "1944:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "1618:13:20",
+                    "src": "1944:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -2214,22 +2726,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1617:22:20"
+              "src": "1943:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39849,
+            "id": 39882,
             "nodeType": "FunctionDefinition",
-            "src": "1892:322:20",
+            "src": "2218:322:20",
             "nodes": [],
             "body": {
-              "id": 39848,
+              "id": 39881,
               "nodeType": "Block",
-              "src": "1968:246:20",
+              "src": "2294:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -2237,14 +2749,14 @@
                     "arguments": [
                       {
                         "hexValue": "307837303439396333323865314532613363343131303862643337333046363637306134343539354431",
-                        "id": 39843,
+                        "id": 39876,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2021:42:20",
+                        "src": "2347:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2253,14 +2765,14 @@
                       },
                       {
                         "hexValue": "307833323643393737453665666338344535313262423943333066373645333063313630654430364642",
-                        "id": 39844,
+                        "id": 39877,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2088:42:20",
+                        "src": "2414:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2269,14 +2781,14 @@
                       },
                       {
                         "hexValue": "307866314533413538343245654546353146323936376233463035443435444434663432303546463430",
-                        "id": 39845,
+                        "id": 39878,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2154:42:20",
+                        "src": "2480:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2299,27 +2811,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39842,
+                      "id": 39875,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "1985:13:20",
+                      "src": "2311:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39846,
+                    "id": 39879,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "2013:6:20",
-                      "2077:9:20",
-                      "2144:8:20"
+                      "2339:6:20",
+                      "2403:9:20",
+                      "2470:8:20"
                     ],
                     "names": [
                       "router",
@@ -2327,17 +2839,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "1985:222:20",
+                    "src": "2311:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39841,
-                  "id": 39847,
+                  "functionReturnParameters": 39874,
+                  "id": 39880,
                   "nodeType": "Return",
-                  "src": "1978:229:20"
+                  "src": "2304:229:20"
                 }
               ]
             },
@@ -2346,26 +2858,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getPolygonMumbaiConfig",
-            "nameLocation": "1901:22:20",
+            "nameLocation": "2227:22:20",
             "parameters": {
-              "id": 39837,
+              "id": 39870,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1923:2:20"
+              "src": "2249:2:20"
             },
             "returnParameters": {
-              "id": 39841,
+              "id": 39874,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39840,
+                  "id": 39873,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39849,
-                  "src": "1946:20:20",
+                  "scope": 39882,
+                  "src": "2272:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2373,20 +2885,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39839,
+                    "id": 39872,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39838,
+                      "id": 39871,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "1946:13:20"
+                        "2272:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "1946:13:20"
+                      "src": "2272:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "1946:13:20",
+                    "src": "2272:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -2395,22 +2907,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1945:22:20"
+              "src": "2271:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39862,
+            "id": 39895,
             "nodeType": "FunctionDefinition",
-            "src": "2220:319:20",
+            "src": "2546:319:20",
             "nodes": [],
             "body": {
-              "id": 39861,
+              "id": 39894,
               "nodeType": "Block",
-              "src": "2293:246:20",
+              "src": "2619:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -2418,14 +2930,14 @@
                     "arguments": [
                       {
                         "hexValue": "307839353237453264303141333036346566366235306331446131433063433532333830334243464632",
-                        "id": 39856,
+                        "id": 39889,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2346:42:20",
+                        "src": "2672:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2434,14 +2946,14 @@
                       },
                       {
                         "hexValue": "307838346239423931303532374164354330334139436138333139303945323165323336454137623036",
-                        "id": 39857,
+                        "id": 39890,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2413:42:20",
+                        "src": "2739:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2450,14 +2962,14 @@
                       },
                       {
                         "hexValue": "307862464132414364333345443645456330656433436330366246316163333864323262333642396539",
-                        "id": 39858,
+                        "id": 39891,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2479:42:20",
+                        "src": "2805:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2480,27 +2992,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39855,
+                      "id": 39888,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "2310:13:20",
+                      "src": "2636:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39859,
+                    "id": 39892,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "2338:6:20",
-                      "2402:9:20",
-                      "2469:8:20"
+                      "2664:6:20",
+                      "2728:9:20",
+                      "2795:8:20"
                     ],
                     "names": [
                       "router",
@@ -2508,17 +3020,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "2310:222:20",
+                    "src": "2636:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39854,
-                  "id": 39860,
+                  "functionReturnParameters": 39887,
+                  "id": 39893,
                   "nodeType": "Return",
-                  "src": "2303:229:20"
+                  "src": "2629:229:20"
                 }
               ]
             },
@@ -2527,26 +3039,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getBNBTestnetConfig",
-            "nameLocation": "2229:19:20",
+            "nameLocation": "2555:19:20",
             "parameters": {
-              "id": 39850,
+              "id": 39883,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2248:2:20"
+              "src": "2574:2:20"
             },
             "returnParameters": {
-              "id": 39854,
+              "id": 39887,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39853,
+                  "id": 39886,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39862,
-                  "src": "2271:20:20",
+                  "scope": 39895,
+                  "src": "2597:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2554,20 +3066,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39852,
+                    "id": 39885,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39851,
+                      "id": 39884,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "2271:13:20"
+                        "2597:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "2271:13:20"
+                      "src": "2597:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "2271:13:20",
+                    "src": "2597:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -2576,22 +3088,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2270:22:20"
+              "src": "2596:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 39875,
+            "id": 39908,
             "nodeType": "FunctionDefinition",
-            "src": "2545:319:20",
+            "src": "2871:319:20",
             "nodes": [],
             "body": {
-              "id": 39874,
+              "id": 39907,
               "nodeType": "Block",
-              "src": "2618:246:20",
+              "src": "2944:246:20",
               "nodes": [],
               "statements": [
                 {
@@ -2599,14 +3111,14 @@
                     "arguments": [
                       {
                         "hexValue": "307841384330633131626636344146363243444341366639334433373639423838426444376362393344",
-                        "id": 39869,
+                        "id": 39902,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2671:42:20",
+                        "src": "2997:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2615,14 +3127,14 @@
                       },
                       {
                         "hexValue": "307844383836453232383646643130373364663832343632656131383232313139363030416638306236",
-                        "id": 39870,
+                        "id": 39903,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2738:42:20",
+                        "src": "3064:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2631,14 +3143,14 @@
                       },
                       {
                         "hexValue": "307862663930333635323931323344453236346246413046433733363266453235423635304434423136",
-                        "id": 39871,
+                        "id": 39904,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2804:42:20",
+                        "src": "3130:42:20",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -2661,27 +3173,27 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 39868,
+                      "id": 39901,
                       "name": "NetworkConfig",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 39724,
-                      "src": "2635:13:20",
+                      "src": "2961:13:20",
                       "typeDescriptions": {
                         "typeIdentifier": "t_type$_t_struct$_NetworkConfig_$39724_storage_ptr_$",
                         "typeString": "type(struct Config.NetworkConfig storage pointer)"
                       }
                     },
-                    "id": 39872,
+                    "id": 39905,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": true,
                     "kind": "structConstructorCall",
                     "lValueRequested": false,
                     "nameLocations": [
-                      "2663:6:20",
-                      "2727:9:20",
-                      "2794:8:20"
+                      "2989:6:20",
+                      "3053:9:20",
+                      "3120:8:20"
                     ],
                     "names": [
                       "router",
@@ -2689,17 +3201,17 @@
                       "bnmToken"
                     ],
                     "nodeType": "FunctionCall",
-                    "src": "2635:222:20",
+                    "src": "2961:222:20",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_memory_ptr",
                       "typeString": "struct Config.NetworkConfig memory"
                     }
                   },
-                  "functionReturnParameters": 39867,
-                  "id": 39873,
+                  "functionReturnParameters": 39900,
+                  "id": 39906,
                   "nodeType": "Return",
-                  "src": "2628:229:20"
+                  "src": "2954:229:20"
                 }
               ]
             },
@@ -2708,26 +3220,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getBaseGoerliConfig",
-            "nameLocation": "2554:19:20",
+            "nameLocation": "2880:19:20",
             "parameters": {
-              "id": 39863,
+              "id": 39896,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2573:2:20"
+              "src": "2899:2:20"
             },
             "returnParameters": {
-              "id": 39867,
+              "id": 39900,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 39866,
+                  "id": 39899,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 39875,
-                  "src": "2596:20:20",
+                  "scope": 39908,
+                  "src": "2922:20:20",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2735,20 +3247,20 @@
                     "typeString": "struct Config.NetworkConfig"
                   },
                   "typeName": {
-                    "id": 39865,
+                    "id": 39898,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 39864,
+                      "id": 39897,
                       "name": "NetworkConfig",
                       "nameLocations": [
-                        "2596:13:20"
+                        "2922:13:20"
                       ],
                       "nodeType": "IdentifierPath",
                       "referencedDeclaration": 39724,
-                      "src": "2596:13:20"
+                      "src": "2922:13:20"
                     },
                     "referencedDeclaration": 39724,
-                    "src": "2596:13:20",
+                    "src": "2922:13:20",
                     "typeDescriptions": {
                       "typeIdentifier": "t_struct$_NetworkConfig_$39724_storage_ptr",
                       "typeString": "struct Config.NetworkConfig"
@@ -2757,9 +3269,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2595:22:20"
+              "src": "2921:22:20"
             },
-            "scope": 39876,
+            "scope": 39909,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "public"
@@ -2788,7 +3300,7 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          39876,
+          39909,
           113,
           8194,
           2937,
@@ -2798,7 +3310,7 @@
         ],
         "name": "Config",
         "nameLocation": "129:6:20",
-        "scope": 39877,
+        "scope": 39910,
         "usedErrors": []
       }
     ],
