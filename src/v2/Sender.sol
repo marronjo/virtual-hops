@@ -22,7 +22,7 @@ abstract contract Sender {
         address receiver,
         uint256 amount,
         uint256 gasLimit,
-        string memory data
+        bytes memory data
     ) internal returns (bytes32) {
         Client.EVM2AnyMessage memory message = _createCCIPMessage(
             receiver,
@@ -48,7 +48,7 @@ abstract contract Sender {
 
     function _createCCIPMessage(
         address _receiver,
-        string memory _data,
+        bytes memory _data,
         uint256 _amount,
         uint256 gasLimit
     ) private view returns (Client.EVM2AnyMessage memory) {
@@ -65,7 +65,7 @@ abstract contract Sender {
 
         Client.EVM2AnyMessage memory ccipMessage = Client.EVM2AnyMessage({
             receiver: abi.encode(_receiver),
-            data: abi.encode(_data),
+            data: _data,
             extraArgs: Client._argsToBytes(evmExtraArgs),
             tokenAmounts: tokenAmounts,
             feeToken: linkToken
@@ -73,6 +73,4 @@ abstract contract Sender {
 
         return ccipMessage;
     }
-
-    receive() external payable{}
 }

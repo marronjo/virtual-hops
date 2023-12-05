@@ -15,14 +15,6 @@ contract VirtualHop is CCIPReceiver, Sender {
         uint256 amount;
     }
 
-    struct HopData {
-        uint256 param1;
-        uint256 param2;
-        uint64 chainSelector;
-        address receiver;
-        uint256 amount;
-    }  
-
     event MessageSent(bytes32 messageId);
     event MessageHopped(bytes32 messageId);  
 
@@ -33,8 +25,9 @@ contract VirtualHop is CCIPReceiver, Sender {
     function _ccipReceive(
         Client.Any2EVMMessage memory message
     ) internal override {
-        HopData memory hopData = abi.decode(message.data, (HopData));
-        bytes32 messageId = _sendMessage(hopData.chainSelector, hopData.receiver, hopData.amount, 0, "");
+        Destination memory hopData = abi.decode(message.data, (Destination));
+        bytes memory data = abi.encode(0);
+        bytes32 messageId = _sendMessage(hopData.chainSelector, hopData.receiver, hopData.amount, 0, data);
         emit MessageHopped(messageId);
     }
 
@@ -46,9 +39,11 @@ contract VirtualHop is CCIPReceiver, Sender {
         uint64 destinationChainSelector,
         address destinationReceiver
     ) external returns(bytes32) {
-        string memory destination = string(abi.encode(Destination(destinationChainSelector, destinationReceiver, amount)));
+        bytes memory destination = abi.encode(Destination(destinationChainSelector, destinationReceiver, amount));
         bytes32 messageId = _sendMessage(chainSelector, receiver, amount, gasLimit, destination);
         emit MessageSent(messageId);
         return messageId;
     }
+
+    receive() external payable{}
 }
