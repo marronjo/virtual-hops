@@ -23,17 +23,13 @@ abstract contract Sender {
         uint256 amount,
         uint256 gasLimit,
         bytes memory data
-    ) internal returns (bytes32) {
-        Client.EVM2AnyMessage memory message = _createCCIPMessage(
-            receiver,
-            data,
-            amount,
-            gasLimit
-        );
-
-        uint256 fee = router.getFee(
+    ) internal returns (bytes32 messageId) {
+        (Client.EVM2AnyMessage memory message, uint256 fee) = _getFeeMessage(
             chainSelector,
-            message
+            receiver,
+            amount,
+            gasLimit,
+            data
         );
 
         require(fee <= IERC20(linkToken).balanceOf(address(this)));
@@ -41,9 +37,27 @@ abstract contract Sender {
         IERC20(linkToken).approve(address(router), fee);
         IERC20(bnmToken).approve(address(router), amount);
 
-        bytes32 messageId = router.ccipSend(chainSelector, message);
+        messageId = router.ccipSend(chainSelector, message);
+    }
 
-        return messageId;
+    function _getFeeMessage(
+        uint64 chainSelector,
+        address receiver,
+        uint256 amount,
+        uint256 gasLimit,
+        bytes memory data
+    ) internal view returns(Client.EVM2AnyMessage memory message, uint256 fee){
+        message = _createCCIPMessage(
+            receiver,
+            data,
+            amount,
+            gasLimit
+        );
+
+        fee = router.getFee(
+            chainSelector,
+            message
+        );
     }
 
     function _createCCIPMessage(
@@ -51,7 +65,7 @@ abstract contract Sender {
         bytes memory _data,
         uint256 _amount,
         uint256 gasLimit
-    ) private view returns (Client.EVM2AnyMessage memory) {
+    ) private view returns (Client.EVM2AnyMessage memory message) {
         Client.EVMTokenAmount[] memory tokenAmounts = new Client.EVMTokenAmount[](1);
         Client.EVMTokenAmount memory tokenAmount = Client.EVMTokenAmount({
             token: bnmToken,
@@ -63,14 +77,12 @@ abstract contract Sender {
         //set strict sequencing to false, to allow failed messages to be overtaken and not block newer messages.
         Client.EVMExtraArgsV1 memory evmExtraArgs = Client.EVMExtraArgsV1(gasLimit, false);
 
-        Client.EVM2AnyMessage memory ccipMessage = Client.EVM2AnyMessage({
+        message = Client.EVM2AnyMessage({
             receiver: abi.encode(_receiver),
             data: _data,
             extraArgs: Client._argsToBytes(evmExtraArgs),
             tokenAmounts: tokenAmounts,
             feeToken: linkToken
         });
-
-        return ccipMessage;
     }
 }

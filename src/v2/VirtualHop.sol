@@ -45,5 +45,17 @@ contract VirtualHop is CCIPReceiver, Sender {
         return messageId;
     }
 
+    function getFee(
+        uint64 chainSelector, 
+        address receiver,
+        uint256 amount,
+        uint256 gasLimit,
+        uint64 destinationChainSelector,
+        address destinationReceiver
+    ) external view returns(uint256 fee) {
+        bytes memory destination = abi.encode(Destination(destinationChainSelector, destinationReceiver, amount));
+        (, fee) = _getFeeMessage(chainSelector, receiver, amount, gasLimit, destination);
+    }
+
     receive() external payable{}
 }

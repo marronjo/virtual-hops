@@ -14,7 +14,6 @@ contract Fee {
         router = IRouterClient(_router);
         linkToken = _link;
         transferToken = _transferToken;
-
     }
 
     function getFee(uint64 chainSelector, uint256 amount, address destination) external view returns(uint256 fee) {
