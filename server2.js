@@ -7,20 +7,160 @@ const cors = require('cors');
 
 const port=3048;
 
+//temp data only
+const feeConst=[
+        {
+          network: 'ETH',
+          chainName: 'OP',
+          etherValue: '0.077228297899151753'
+        },
+        {
+          network: 'ETH',
+          chainName: 'POL',
+          etherValue: '0.07709781511076923'
+        },
+        {
+          network: 'ETH',
+          chainName: 'AVAX',
+          etherValue: '0.110620313846153846'
+        },
+        {
+          network: 'ETH',
+          chainName: 'BASE',
+          etherValue: '0.00155586029983675'
+        },
+        {
+          network: 'ETH',
+          chainName: 'BNB',
+          etherValue: '0.009246523076923076'
+        },
+        { network: 'OP', chainName: 'ETH', etherValue: '0.2467432815378496' },
+        {
+          network: 'OP',
+          chainName: 'POL',
+          etherValue: '0.138479552707692307'
+        },
+        {
+          network: 'OP',
+          chainName: 'AVAX',
+          etherValue: '0.110620313846153846'
+        },
+        {
+          network: 'OP',
+          chainName: 'BASE',
+          etherValue: '0.138480673848250043'
+        },
+        {
+          network: 'POL',
+          chainName: 'ETH',
+          etherValue: '0.2467432815378496'
+        },
+        {
+          network: 'POL',
+          chainName: 'OP',
+          etherValue: '0.138492060559145944'
+        },
+        {
+          network: 'POL',
+          chainName: 'AVAX',
+          etherValue: '0.110620313846153846'
+        },
+        {
+          network: 'POL',
+          chainName: 'BNB',
+          etherValue: '0.146938830769230769'
+        },
+        {
+          network: 'AVAX',
+          chainName: 'ETH',
+          etherValue: '0.242692002465319876'
+        },
+        {
+          network: 'AVAX',
+          chainName: 'OP',
+          etherValue: '0.077228297899151753'
+        },
+        {
+          network: 'AVAX',
+          chainName: 'POL',
+          etherValue: '0.077103219384615384'
+        },
+        {
+          network: 'AVAX',
+          chainName: 'BASE',
+          etherValue: '0.138480646824337624'
+        },
+        {
+          network: 'AVAX',
+          chainName: 'BNB',
+          etherValue: '0.146938830769230769'
+        },
+        {
+          network: 'BASE',
+          chainName: 'ETH',
+          etherValue: '0.018503863489036898'
+        },
+        {
+          network: 'BASE',
+          chainName: 'OP',
+          etherValue: '0.138492060559145944'
+        },
+        {
+          network: 'BASE',
+          chainName: 'AVAX',
+          etherValue: '0.141831262153846153'
+        },
+        {
+          network: 'BASE',
+          chainName: 'BNB',
+          etherValue: '0.146938830769230769'
+        },
+        {
+          network: 'BNB',
+          chainName: 'ETH',
+          etherValue: '0.016889394739385895'
+        },
+        {
+          network: 'BNB',
+          chainName: 'POL',
+          etherValue: '0.138477751283229514'
+        },
+        {
+          network: 'BNB',
+          chainName: 'AVAX',
+          etherValue: '0.141831262153846153'
+        },
+        {
+          network: 'BNB',
+          chainName: 'BASE',
+          etherValue: '0.138480676350746732'
+        }
+      ]
+
+
+
 async function createGraph(start,stop) {
-let out = await fee.getAllFees();
+// let feeObj = await fee.getAllFees();
+let feeObj=feeConst;
         // console.log(out);
 let graph = Graph();
 let graphMeta =[];
+let fee2=feeObj.flat()
 
-out.forEach(function(x){
+for (const o of fee2){
+        console.log("fee obj:\n",fee2)
+        graph.addLink(o.network,o.chainName,parseFloat(o.etherValue))
+        graphMeta.push(o);
+}
 
-x.forEach(function (o) {
-        // console.log(o.network, o.chainName, o.etherValue);
-        graph.addLink(o.network, o.chainName, {weight: o.etherValue});
-                graphMeta.push(o);
-});
-});
+// feeObj.forEach(function(x){
+
+// x.forEach(function (o) {
+//         // console.log(o.network, o.chainName, o.etherValue);
+//         graph.addLink(o.network, o.chainName, {weight: o.etherValue});
+//                 graphMeta.push(o);
+// });
+// });
 return {graph,graphMeta};
 }
 
