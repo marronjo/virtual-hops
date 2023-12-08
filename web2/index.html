@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+        	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        	<title> Simple BL Rate DApp</title>
+</head>
+<style type="text/css">
+	body { background:honeydew; } 
+ </style>
+<body s>
+        	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.2.11/web3.min.js"></script>
+        	<script src="./index01.js"></script>
+ 
+        	<div><p></p></div>
+			<div class=" container-fluid table-info col-6  rounded shadow">
+				<h1>Simple BL rate</h1>
+				<b>Current BL rates shown below</b>
+			<p>Please update your suggestions regarding BL (Borrowing Lending) rates.</p>  
+			</div>
+
+	<div class="container">
+		  <div class="row">
+
+			<div class="col-sm bg-info text-white align-middle rounded ">
+			  <div class="card-header">One Day Rate</div>
+			  Average Rate:  <emp  id="avg-1">0</emp> </br>
+			  No of Votes:  <span  id="no-1">0</span></br>
+			  </br>
+			  <label for "rate-1">Your Rate: </label><input type ="number" min="-25" max="25" step="0.001" id ="rate-1" />
+			  <button type="button" id="r1" class="btn btn-primary" onclick="subRate(this.id)">Submit</button>			
+			</div>
+
+			<div  class="col-sm bg-success text-white rounded">
+				<div class="card-header">One Week Rate </div>
+			  Average Rate:  <emp id="avg-2">0</emp> </br>
+			  No of Votes:  <emp id="no-2">0</emp></br>
+			  </br>
+			  <label for "rate-2">Your Rate: </label><input type ="number" min="-25" max="25" step="0.001" id ="rate-2" />
+			  <button type="button" id="r2" class="btn btn-primary" onclick="subRate(this.id)">Submit</button>	
+			</div>	
+
+			<div  class="col-sm bg-secondary text-white rounded">
+				<div class="card-header">Send Token</div> 
+			 1) Determine optimal path   </br>
+			 2) send selected tokens from source to destination:  </br>
+			  </br>
+              
+			  <div ><label for "tokenAmount-3">Amount of tokens:  </label><input class="float-right" type ="number" min="0" max="100" step="1" id ="tokenAmount-3" /></div>
+			  <div><label for "startChain-3">Source Chain: </label><input class="float-right" type ="text"  id ="srcChain-3" /></div>
+			  <div><label for "destinationChain-3">Destination Chain: </label><input class="float-right" type ="text" id ="destChain-3" /></div>
+              <div><label for "destinationAddress-3">Destination Address: </label><input class="float-right" type ="text"  id ="destAddress-3" /></div>
+			  <div><button type="button" id="r3" class="btn btn-primary" onclick="subRate(this.id)">Submit</button></div>			
+			  </div>
+		  </div>
+	</div>
+			
+</body>
+</html>
