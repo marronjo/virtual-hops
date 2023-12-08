@@ -84,7 +84,7 @@ function App() {
             >
               <option value="AVAX">Avalanche (Fuji testnet)</option>
               <option value="OP">Optimism (Goerli testnet)</option>
-              <option value="BASE">xDai (Goerli testnet)</option>
+              <option value="BASE">Base (Goerli testnet)</option>
               <option value="ETH">Ethereum (Sepolia testnet)</option>
               <option value="BNB">Binance Smart Chain (BNB Chain testnet)</option>
               <option value="MUMBAI">Polygon (Mumbai testnet)</option>
