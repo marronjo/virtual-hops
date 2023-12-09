@@ -257,7 +257,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
                   </button>
                 </div>
                 <div className="col-sm-6">
-                  <button className="btn btn-primary w-100" onClick={handleSubmit}>
+                  <button className="btn btn-primary w-100" onClick={handleSubmit} disabled={!optimalPathData}>
                     Send
                   </button>
                 </div>
