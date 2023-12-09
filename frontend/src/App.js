@@ -185,32 +185,32 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
       <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div className="container ">
           <span className="navbar-brand">Virtual Hops</span>
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <p className="nav-link">
-                  {metamaskConnected ? 'Connected' : 'Not Connected'}
-                  {!metamaskConnected && (
-                    <button className="btn btn-primary" onClick={handleConnectMetamask}>
-                      Connect Metamask
-                    </button>
-                  )}
-                </p>
-              </li>
-              {networkInfo && (
-                <li className="nav-item">
-                  <p className="nav-link">
-                    {networkInfo.networkName} ({networkInfo.chainID})
-                  </p>
-                </li>
+          <ul className="navbar-nav ms-auto align-items-center">
+          <li className="nav-item">
+            <a href="#" className="nav-link">
+              {!metamaskConnected && (
+                <button className="btn btn-primary" onClick={handleConnectMetamask}>
+                  Connect Metamask
+                </button>
               )}
-              {walletAddress && (
-                <li className="nav-item">
-                  <p className="nav-link">{walletAddress.substring(0, 8)}...</p>
-                </li>
-              )}
-            </ul>
-          </div>
+            </a>
+          </li>
+          {metamaskConnected && networkInfo && (
+            
+            <li className="nav-item">
+              <a href="/" className="nav-link">
+                {networkInfo.networkName !== 'Unknown Network'
+                  ? `${networkInfo.networkName}`
+                  : `${networkInfo.networkName} (${networkInfo.chainID})`}
+              </a>
+            </li>
+          )}
+          {metamaskConnected && walletAddress && (
+            <li className="nav-item">
+              <a href="/" className="nav-link">{walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}</a>
+            </li>
+          )}
+        </ul>
         </div>
       </nav>
       <div className="container mt-5">
