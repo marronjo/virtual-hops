@@ -149,7 +149,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
     const optimalPathArray = optimalPathData.optimalPath.split(">").slice(1);;
   
     // Get the current chain from metamask
-    const sourceChain = networkInfo.networkName.split(' ')[0]
+    // const sourceChain = networkInfo.networkName.split(' ')[0]
+    const sourceChain = getChainById.get(networkInfo.chainID)
     let chainConfig = config[sourceChain];
 
     let contract = new ethers.Contract(
