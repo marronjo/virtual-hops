@@ -292,6 +292,13 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
                 <div className="card mt-4 p-3">
                   <h5 className="card-title">Transaction Hash</h5>
                   <p className="card-text">{transactionHash}</p>
+                  <a
+                    href={`https://ccip.chain.link/tx/${transactionHash}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View in CCIP Explorer
+                  </a>
                 </div>
               )}
             </div>
