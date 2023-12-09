@@ -8,7 +8,9 @@ const VirtualHop = require('./VirtualHopV3.sol/VirtualHopV3.json');
 function App() {
   const [selectedChain, setSelectedChain] = useState('AVAX');
   const [amount, setAmount] = useState('');
+  const [destinationAddress, setDestinationAddress] = useState('');
   const [optimalPathData, setOptimalPathData] = useState(null);
+  const [optimizing, setOptimizing] = useState(false);
   
   // Use the custom hook to handle Metamask connection and network information
   const {
@@ -91,8 +93,14 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
   const handleAmountChange = (e) => {
     setAmount(e.target.value);
   };
+
+  const handleDestinationChange = (e) => {
+    setDestinationAddress(e.target.value);
+  };
   
   const handleOptimize = async () => {
+    setOptimizing(true);
+
     try {
       const response = await fetch('http://localhost:3048/', {
         method: 'POST',
@@ -114,24 +122,33 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
     } catch (error) {
       console.error('Error optimizing path:', error);
       // Handle error scenarios here
+    } finally {
+      setOptimizing(false);
     }
   };
 
-
   const handleSubmit = () => {
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-
-    let chainConfig = config["ETH"];
+  
+    // Assuming optimalPathData.optimalPath contains the array of hops
+    const optimalPathArray = optimalPathData.optimalPath.split(">");
+  
+    let chainConfig = config[selectedChain];
 
     let contract = new ethers.Contract(
-                      chainConfig.contractAddress,
-                      VirtualHop.abi,
-                      signer
-                    );
-    
-    let hops1 = ["POL", "OP", "BNB", "AVAX"];
-    sendMultiHop(contract, "ETH", hops1, "0x3e62Dff1cb16F2902BC7E7400d611cCfc1368981", 9362823, 1000000);
+      chainConfig.contractAddress,
+      VirtualHop.abi,
+      signer
+    );
+
+    // Assuming the amount and gasLimit are obtained elsewhere
+    const gasLimit = 1000000;
+  
+    // Sending the multi-hop transaction using the optimal path
+    sendMultiHop(contract, selectedChain, optimalPathArray, destinationAddress, amount, gasLimit);
+
   };
 
   const handleConnectMetamask = () => {
@@ -205,6 +222,19 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
               placeholder="Enter amount"
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="destinationInput" className="form-label">
+              Destination Address:
+            </label>
+            <input
+              type="text"
+              id="destinationInput"
+              className="form-control"
+              value={destinationAddress}
+              onChange={handleDestinationChange}
+              placeholder="Enter destination address"
+            />
+          </div>
           <div>
             <button className="btn btn-primary" onClick={handleOptimize}>
                 Optimize
@@ -216,6 +246,7 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
               <p>Cost: {optimalPathData.cost}</p>
             </div>
           )}
+          {optimizing ? <p>Optimizing...</p> : null}
           <div>
             <button className="btn btn-primary" onClick={handleSubmit}>
               Send
