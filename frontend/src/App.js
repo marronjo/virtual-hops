@@ -12,6 +12,7 @@ function App() {
   const [optimalPathData, setOptimalPathData] = useState(null);
   const [optimizing, setOptimizing] = useState(false);
   const [transactionHash, setTransactionHash] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
   
   // Use the custom hook to handle Metamask connection and network information
   const {
@@ -143,6 +144,10 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
   };
 
   const handleSubmit = async () => {
+    if (!destinationAddress || !amount) {
+      setFormSubmitted(true);
+      return; 
+    }
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -233,22 +238,30 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
                 <input
                   type="text"
                   id="destinationInput"
-                  className="form-control"
+                  className={`form-control ${formSubmitted && !destinationAddress ? 'is-invalid' : ''}`}
                   value={destinationAddress}
                   onChange={handleDestinationChange}
                   placeholder="Enter destination address"
-                />
+                  required
+                  />
+                  <div className="invalid-feedback">
+                    Please enter a destination address
+                  </div>
               </div>
               <div className="form-group">
                 <label htmlFor="amountInput" className="form-label">Amount</label>
                 <input
                   type="text"
                   id="amountInput"
-                  className="form-control"
+                  className={`form-control ${formSubmitted && !amount ? 'is-invalid' : ''}`}
                   value={amount}
                   onChange={handleAmountChange}
                   placeholder="Enter amount"
+                  required // Adding the required attribute for form validation
                 />
+                <div className="invalid-feedback">
+                  Please enter an amount
+                </div>
               </div>
               <div className="row mt-2">
                 <div className="col-sm-6">
