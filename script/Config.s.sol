@@ -2,6 +2,8 @@
 pragma solidity 0.8.19;
 
 import {Script, console2} from "forge-std/Script.sol";
+import {CCIPRouterMock} from "../test/mock/CCIPRouterMock.sol";
+import {TokenMock} from "../test/mock/TokenMock.sol";
 
 contract Config is Script {
 
@@ -31,11 +33,16 @@ contract Config is Script {
         }
     }
 
-    function getLocalTestnetConfig() public pure returns(NetworkConfig memory) {
+    function getLocalTestnetConfig() public returns(NetworkConfig memory) {
+        vm.startBroadcast();
+        CCIPRouterMock ccipRouterMock = new CCIPRouterMock(); 
+        TokenMock linkTokenMock = new TokenMock();
+        TokenMock bnmTokenMock = new TokenMock();
+        vm.stopBroadcast();
         return NetworkConfig({
-            router: address(1),
-            linkToken: address(0),
-            bnmToken: address(0)
+            router: address(ccipRouterMock),
+            linkToken: address(linkTokenMock),
+            bnmToken: address(bnmTokenMock)
         });
     }
 
