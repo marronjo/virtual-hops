@@ -61,6 +61,7 @@ function App() {
 function createHopList(hops, receiver){
     let hopList = [];
     for(const hop of hops){
+        console.log("Adding hop: ", hop)
         let networkConfig = config[hop];
         hopList.push(
         {
@@ -132,10 +133,11 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
   
-    // Assuming optimalPathData.optimalPath contains the array of hops
-    const optimalPathArray = optimalPathData.optimalPath.split(">");
+    const optimalPathArray = optimalPathData.optimalPath.split(">").slice(1);;
   
-    let chainConfig = config[selectedChain];
+    // Get the current chain from metamask
+    const sourceChain = networkInfo.networkName.split(' ')[0]
+    let chainConfig = config[sourceChain];
 
     let contract = new ethers.Contract(
       chainConfig.contractAddress,
@@ -143,11 +145,13 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
       signer
     );
 
-    // Assuming the amount and gasLimit are obtained elsewhere
     const gasLimit = 1000000;
-  
+
+    console.log("Submitting transaction on ", sourceChain, ", router contract ", chainConfig.contractAddress, ", dest addr ", destinationAddress, ", amount ", amount)
+    console.log("Hop array ", optimalPathArray)
+
     // Sending the multi-hop transaction using the optimal path
-    sendMultiHop(contract, selectedChain, optimalPathArray, destinationAddress, amount, gasLimit);
+    sendMultiHop(contract, sourceChain, optimalPathArray, destinationAddress, amount, gasLimit);
 
   };
 
