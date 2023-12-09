@@ -35,7 +35,7 @@ function App() {
     },
     "POL": {
         "contractAddress": "0x1EC90Af34556A0F5f41A0F7699e56F556c7ed172",
-        "chainSelector": "12532609583862916517",
+        "chainSelector": "12532609583862916517"
     },
     "BNB": {
         "contractAddress": "0x803B135CC4b0f9576e6299e8E1917ffA5BfC33C6",
@@ -46,6 +46,7 @@ function App() {
         "chainSelector": "5790810961207155433"
     }
   }
+
 
   // for(const[key, value] of Object.entries(config)){
   //     let provider =  new ethers.providers.JsonRpcProvider(value.rpcUrl);
@@ -113,7 +114,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
           stop: selectedChain, // Destination chain abbreviation
         }),
       });
-
+      console.log(networkInfo)
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -161,8 +162,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div className="container">
+      <nav className="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div className="container ">
           <span className="navbar-brand">Virtual Hops</span>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -194,8 +195,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
       </nav>
 
       <div className="container mt-5">
-        <div className="form-container">
-          <div className="form-group">
+        <div className="col-sm form-container">
+          <div className="form-group bg-info text-white rounded">
             <label htmlFor="chainSelect" className="form-label">
               Destination Chain:
             </label>
@@ -214,7 +215,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
             </select>
           </div>
           <div className="form-group">
-            <label htmlFor="destinationInput" className="form-label">
+            <label htmlFor="destinationInput" className="form-label bg-info text-white rounded">
               Destination Address:
             </label>
             <input
@@ -226,7 +227,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
               placeholder="Enter destination address"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group bg-info text-white rounded">
             <label htmlFor="amountInput" className="form-label">
               Enter Amount:
             </label>

@@ -140,8 +140,8 @@ const feeConst = [
 let feeDict = new Map();
 
 async function createGraph(start, stop) {
-  //   let allFees = await fee.getAllFees();
-  let allFees = feeConst;
+    let allFees = await fee.getAllFees();
+//   let allFees = feeConst;
   let graph = Graph();
   let graphMeta = [];
   let feeObj = allFees.flat();
