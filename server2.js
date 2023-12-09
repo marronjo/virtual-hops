@@ -6,6 +6,10 @@ let fee = require("./fee2.js");
 const cors = require("cors");
 
 const port = 3048;
+  
+let allFees = []
+let lastFeeCheckTime = 0
+const feeCheckInterval = 120000 // Only retrieve fees again after some time (in milliseconds)
 
 //temp data only
 const feeConst = [
@@ -140,8 +144,18 @@ const feeConst = [
 let feeDict = new Map();
 
 async function createGraph(start, stop) {
-    let allFees = await fee.getAllFees();
-//   let allFees = feeConst;
+
+  let timeSinceLastCheck = Date.now() - lastFeeCheckTime
+  console.log("Time since last check: ", timeSinceLastCheck)
+  if (timeSinceLastCheck > feeCheckInterval) {
+    allFees = await fee.getAllFees();
+    lastFeeCheckTime = Date.now()
+  }
+  else {
+    console.log("Not refreshing fees. They were last retrieved ", timeSinceLastCheck / 1000, " seconds ago")
+  }
+
+  // let allFees = feeConst;
   let graph = Graph();
   let graphMeta = [];
   let feeObj = allFees.flat();
@@ -157,6 +171,7 @@ async function createGraph(start, stop) {
 
   return { graph, graphMeta };
 }
+
 var app = express();
 app.use(express.json());
 app.use(
@@ -195,26 +210,22 @@ app.post("/", async function (req, res) {
     .join(">");
   console.log(":::::", result);
 
-
-
   let feeForDirPath = 99999;
   let feeForOptPath = [];
   let feeForOptPathSum = 0;
- 
 
-for (let i=0;i<out.length-1;i++){
-        console.log(`price: ${i}`,feeDict.get(out[i].id+out[i+1].id))
-        feeForOptPathSum+=parseFloat(feeDict.get(out[i].id+out[i+1].id))
-}
-
+  for (let i = 0; i < out.length - 1; i++) {
+    console.log(`price: ${i}`, feeDict.get(out[i].id + out[i + 1].id))
+    feeForOptPathSum += parseFloat(feeDict.get(out[i].id + out[i + 1].id))
+  }
 
   console.log(
     "Fee for direct path from " +
-      req.body.start +
-      " to " +
-      req.body.stop +
-      "==" +
-      feeForDirPath
+    req.body.start +
+    " to " +
+    req.body.stop +
+    "==" +
+    feeForDirPath
   );
 
   console.log("Fee for opt path " + feeForOptPath);
