@@ -47,6 +47,14 @@ function App() {
     }
   }
 
+  const getChainById = new Map([
+    ['11155111', 'ETH'],
+    ['43113', 'AVAX'],
+    ['420', 'OP'],
+    ['80001', 'POL'],
+    ['97', 'BNB'],
+    ['84531', 'BASE']
+  ]);
 
   // for(const[key, value] of Object.entries(config)){
   //     let provider =  new ethers.providers.JsonRpcProvider(value.rpcUrl);
@@ -110,11 +118,13 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          start: networkInfo.networkName.split(' ')[0], // Source chain abbreviation
+          // start: networkInfo.networkName.split(' ')[0], // Source chain abbreviation
+          start: getChainById.get(networkInfo.chainID),    //added local chainId to name map as Metamask doesn't have all names and comes as unknown
           stop: selectedChain, // Destination chain abbreviation
         }),
+       
       });
-      console.log(networkInfo)
+      console.log(networkInfo,getChainById.get(networkInfo.chainID))
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -128,6 +138,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
       setOptimizing(false);
     }
   };
+
+
 
   const handleSubmit = () => {
 
