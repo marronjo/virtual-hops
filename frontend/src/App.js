@@ -11,6 +11,7 @@ function App() {
   const [destinationAddress, setDestinationAddress] = useState('');
   const [optimalPathData, setOptimalPathData] = useState(null);
   const [optimizing, setOptimizing] = useState(false);
+  const [transactionHash, setTransactionHash] = useState('');
   
   // Use the custom hook to handle Metamask connection and network information
   const {
@@ -94,6 +95,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
         }
     );
     console.log("Transaction Hash : %s", output["hash"]);
+
+    return output["hash"]
 }
 
   const handleChainChange = (e) => {
@@ -139,9 +142,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
     }
   };
 
-
-
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -165,8 +166,9 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
     console.log("Hop array ", optimalPathArray)
 
     // Sending the multi-hop transaction using the optimal path
-    sendMultiHop(contract, optimalPathArray, destinationAddress, amount, gasLimit);
+    const hash = await sendMultiHop(contract, optimalPathArray, destinationAddress, amount, gasLimit);
 
+    setTransactionHash(hash);
   };
 
   const handleConnectMetamask = () => {
@@ -199,7 +201,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
               )}
               {walletAddress && (
                 <li className="nav-item">
-                  <p className="nav-link">{walletAddress.substring(0, 8)}</p>
+                  <p className="nav-link">{walletAddress.substring(0, 8)}...</p>
                 </li>
               )}
             </ul>
@@ -209,7 +211,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-sm-6">
-            <div className="card p-3">
+            <div className="card p-3 bg-light text-dark">
               <div className="form-group">
                 <label htmlFor="chainSelect" className="form-label">Destination Chain</label>
                 <select
@@ -262,7 +264,6 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
               </div>
               {optimalPathData && !optimizing && optimalPathData.status === 'ok' && (
                 <div className="card mt-4 p-3">
-
                   <h5 className="card-title">Optimal Path</h5>
                   <p className="card-text">{optimalPathData.optimalPath}</p>
                   <h5 className="card-title">Cost</h5>
@@ -270,10 +271,16 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
                 </div>
               )}
               {optimizing &&
-                <div className="card mt-3 p-3">
+                <div className="card mt-4 p-3">
                   <h5 className="card-title">Optimizing...</h5>
                 </div>
               }
+              {transactionHash && (
+                <div className="card mt-4 p-3">
+                  <h5 className="card-title">Transaction Hash</h5>
+                  <p className="card-text">{transactionHash}</p>
+                </div>
+              )}
             </div>
           </div>
         </div>
