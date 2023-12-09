@@ -182,7 +182,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <p className="nav-link">
-                  Status: {metamaskConnected ? 'Connected' : 'Not Connected'}
+                  {metamaskConnected ? 'Connected' : 'Not Connected'}
                   {!metamaskConnected && (
                     <button className="btn btn-primary" onClick={handleConnectMetamask}>
                       Connect Metamask
@@ -193,82 +193,88 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
               {networkInfo && (
                 <li className="nav-item">
                   <p className="nav-link">
-                    {networkInfo.networkName} (ID: {networkInfo.chainID})
+                    {networkInfo.networkName} ({networkInfo.chainID})
                   </p>
                 </li>
               )}
               {walletAddress && (
                 <li className="nav-item">
-                  <p className="nav-link">Address: {walletAddress}</p>
+                  <p className="nav-link">{walletAddress.substring(0, 8)}</p>
                 </li>
               )}
             </ul>
           </div>
         </div>
       </nav>
-
       <div className="container mt-5">
-        <div className="col-sm form-container">
-          <div className="form-group bg-info text-white rounded">
-            <label htmlFor="chainSelect" className="form-label">
-              Destination Chain:
-            </label>
-            <select
-              id="chainSelect"
-              className="form-control"
-              onChange={handleChainChange}
-              value={selectedChain}
-            >
-              <option value="AVAX">Avalanche (Fuji testnet)</option>
-              <option value="OP">Optimism (Goerli testnet)</option>
-              <option value="BASE">Base (Goerli testnet)</option>
-              <option value="ETH">Ethereum (Sepolia testnet)</option>
-              <option value="BNB">Binance Smart Chain (BNB Chain testnet)</option>
-              <option value="POL">Polygon (Mumbai testnet)</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="destinationInput" className="form-label bg-info text-white rounded">
-              Destination Address:
-            </label>
-            <input
-              type="text"
-              id="destinationInput"
-              className="form-control"
-              value={destinationAddress}
-              onChange={handleDestinationChange}
-              placeholder="Enter destination address"
-            />
-          </div>
-          <div className="form-group bg-info text-white rounded">
-            <label htmlFor="amountInput" className="form-label">
-              Enter Amount:
-            </label>
-            <input
-              type="text"
-              id="amountInput"
-              className="form-control"
-              value={amount}
-              onChange={handleAmountChange}
-              placeholder="Enter amount"
-            />
-          </div>
-          <div>
-            <button className="btn btn-primary" onClick={handleOptimize}>
-                Optimize
-            </button>
-          </div>
-          {optimalPathData && !optimizing && optimalPathData.status === 'ok' && (
-            <div>
-              <p>Optimal Path: {optimalPathData.optimalPath}</p>
-              <p>Cost: {optimalPathData.cost}</p>
+        <div className="row justify-content-center">
+          <div className="col-sm-6">
+            <div className="card p-3">
+              <div className="form-group">
+                <label htmlFor="chainSelect" className="form-label">Destination Chain</label>
+                <select
+                  id="chainSelect"
+                  className="form-select"
+                  onChange={handleChainChange}
+                  value={selectedChain}
+                >
+                  <option value="AVAX">Avalanche (Fuji testnet)</option>
+                  <option value="OP">Optimism (Goerli testnet)</option>
+                  <option value="BASE">Base (Goerli testnet)</option>
+                  <option value="ETH">Ethereum (Sepolia testnet)</option>
+                  <option value="BNB">Binance Smart Chain (BNB Chain testnet)</option>
+                  <option value="POL">Polygon (Mumbai testnet)</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="destinationInput" className="form-label">Destination Address</label>
+                <input
+                  type="text"
+                  id="destinationInput"
+                  className="form-control"
+                  value={destinationAddress}
+                  onChange={handleDestinationChange}
+                  placeholder="Enter destination address"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="amountInput" className="form-label">Amount</label>
+                <input
+                  type="text"
+                  id="amountInput"
+                  className="form-control"
+                  value={amount}
+                  onChange={handleAmountChange}
+                  placeholder="Enter amount"
+                />
+              </div>
+              <div className="row mt-2">
+                <div className="col-sm-6">
+                  <button className="btn btn-primary w-100" onClick={handleOptimize}>
+                    Optimize
+                  </button>
+                </div>
+                <div className="col-sm-6">
+                  <button className="btn btn-primary w-100" onClick={handleSubmit}>
+                    Send
+                  </button>
+                </div>
+              </div>
+              {optimalPathData && !optimizing && optimalPathData.status === 'ok' && (
+                <div className="card mt-4 p-3">
+
+                  <h5 className="card-title">Optimal Path</h5>
+                  <p className="card-text">{optimalPathData.optimalPath}</p>
+                  <h5 className="card-title">Cost</h5>
+                  <p className="card-text">{optimalPathData.cost}</p>
+                </div>
+              )}
+              {optimizing &&
+                <div className="card mt-3 p-3">
+                  <h5 className="card-title">Optimizing...</h5>
+                </div>
+              }
             </div>
-          )}
-          {optimizing ? <p>Optimizing...</p> : null}
-          <div>
-            <button className="btn btn-primary" onClick={handleSubmit}>
-              Send
-            </button>
           </div>
         </div>
       </div>
