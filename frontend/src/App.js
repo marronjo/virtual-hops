@@ -216,7 +216,7 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-sm-6">
-            <div className="card p-3 bg-light text-dark">
+            <div className="card p-3 mb-5 bg-light text-dark">
               <div className="form-group">
                 <label htmlFor="chainSelect" className="form-label">Destination Chain</label>
                 <select
