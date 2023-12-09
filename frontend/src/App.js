@@ -8,6 +8,7 @@ const VirtualHop = require('./VirtualHopV3.sol/VirtualHopV3.json');
 function App() {
   const [selectedChain, setSelectedChain] = useState('AVAX');
   const [amount, setAmount] = useState('');
+  const [optimalPathData, setOptimalPathData] = useState(null);
   
   // Use the custom hook to handle Metamask connection and network information
   const {
@@ -91,10 +92,31 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
     setAmount(e.target.value);
   };
   
-  const handleOptimize = () => {
-    // Logic for optimizing
-    // ...
+  const handleOptimize = async () => {
+    try {
+      const response = await fetch('http://localhost:3048/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          start: networkInfo.networkName.split(' ')[0], // Source chain abbreviation
+          end: selectedChain, // Destination chain abbreviation
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      setOptimalPathData(data); // Update state with optimal path data
+    } catch (error) {
+      console.error('Error optimizing path:', error);
+      // Handle error scenarios here
+    }
   };
+
 
   const handleSubmit = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -188,6 +210,12 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
                 Optimize
             </button>
           </div>
+          {optimalPathData && optimalPathData.status === 'ok' && (
+            <div>
+              <p>Optimal Path: {optimalPathData.optimalPath}</p>
+              <p>Cost: {optimalPathData.cost}</p>
+            </div>
+          )}
           <div>
             <button className="btn btn-primary" onClick={handleSubmit}>
               Send

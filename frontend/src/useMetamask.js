@@ -83,7 +83,7 @@ const useMetamask = () => {
 
   const getNetworkDetails = (chainId) => {
     let networkName = 'Unknown Network';
-    const formattedChainId = chainId.startsWith('0x') ? chainId.slice(2) : chainId;
+    const formattedChainId = chainId.startsWith('0x') ? parseInt(chainId, 16).toString() : chainId;
     
     switch (formattedChainId) {
       case '1':
@@ -114,8 +114,11 @@ const useMetamask = () => {
         networkName = 'BNB testnet';
         break;
       case '80001':
-        networkName = 'MATIC Mumbai';
+        networkName = 'POL Mumbai';
         break;
+      case '84531':
+          networkName = 'Base Goerli';
+          break;
       default:
         break;
     }
