@@ -117,8 +117,8 @@ const useMetamask = () => {
         networkName = 'POL Mumbai';
         break;
       case '84531':
-          networkName = 'Base Goerli';
-          break;
+        networkName = 'BASE Goerli';
+        break;
       default:
         break;
     }
