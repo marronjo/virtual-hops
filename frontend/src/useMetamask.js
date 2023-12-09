@@ -86,28 +86,13 @@ const useMetamask = () => {
     const formattedChainId = chainId.startsWith('0x') ? parseInt(chainId, 16).toString() : chainId;
     
     switch (formattedChainId) {
-      case '1':
-        networkName = 'ETH Mainnet';
-        break;
-      case '3':
-        networkName = 'ETH Testnet';
-        break;
-      case '4':
-        networkName = 'ETH Testnet';
-        break;
-      case '5':
-        networkName = 'ETH Testnet';
-        break;
-      case '43114':
-        networkName = 'AVAX';
-        break;
       case '43113':
         networkName = 'AVAX Fuji';
         break;
       case '420':
         networkName = 'OPT Goerli';
         break;
-      case '31337':
+      case '11155111':
         networkName = 'ETH Sepolia';
         break;
       case '97':
