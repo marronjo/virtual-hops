@@ -101,7 +101,7 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
         },
         body: JSON.stringify({
           start: networkInfo.networkName.split(' ')[0], // Source chain abbreviation
-          end: selectedChain, // Destination chain abbreviation
+          stop: selectedChain, // Destination chain abbreviation
         }),
       });
 

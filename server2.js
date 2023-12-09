@@ -140,8 +140,8 @@ const feeConst=[
 
 
 async function createGraph(start, stop) {
-  // let feeObj = await fee.getAllFees();
-  let feeObj = feeConst;
+  let feeObj = await fee.getAllFees();
+  //let feeObj = feeConst;
   // console.log(out);
   let graph = Graph();
   let graphMeta = [];
@@ -187,7 +187,7 @@ app.post('/', async function (req, res) {
   console.log(req.body);
   let graphStr = await createGraph(req.body.start, req.body.stop);
 
-  console.log(graphStr.feeForDirPath);
+  //console.log(graphStr.feeForDirPath);
   let pathFinder = pathX.aStar(graphStr.graph, {
     oriented: true,
     // We tell our pathfinder what should it use as a distance function:
