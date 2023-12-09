@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'; // Custom CSS for styling
-import useMetamask from './useMetamask'; // Import the custom hook
+import './App.css'; 
+import useMetamask from './useMetamask'; 
 const ethers = require('ethers');
 const VirtualHop = require('./VirtualHopV3.sol/VirtualHopV3.json');
 
@@ -73,7 +73,7 @@ function createHopList(hops, receiver){
     return hopList;
 }
 
-async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
+async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
     let hopList = createHopList(hops, receiver);
 
     let output = await contract.sendMessage(
@@ -147,11 +147,11 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
 
     const gasLimit = 1000000;
 
-    console.log("Submitting transaction on ", sourceChain, ", router contract ", chainConfig.contractAddress, ", dest addr ", destinationAddress, ", amount ", amount)
+    console.log("Submitting transaction on ", sourceChain, ", hop contract ", chainConfig.contractAddress, ", dest addr ", destinationAddress, ", amount ", amount)
     console.log("Hop array ", optimalPathArray)
 
     // Sending the multi-hop transaction using the optimal path
-    sendMultiHop(contract, sourceChain, optimalPathArray, destinationAddress, amount, gasLimit);
+    sendMultiHop(contract, optimalPathArray, destinationAddress, amount, gasLimit);
 
   };
 
@@ -210,21 +210,8 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
               <option value="BASE">Base (Goerli testnet)</option>
               <option value="ETH">Ethereum (Sepolia testnet)</option>
               <option value="BNB">Binance Smart Chain (BNB Chain testnet)</option>
-              <option value="MUMBAI">Polygon (Mumbai testnet)</option>
+              <option value="POL">Polygon (Mumbai testnet)</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label htmlFor="amountInput" className="form-label">
-              Enter Amount:
-            </label>
-            <input
-              type="number"
-              id="amountInput"
-              className="form-control"
-              value={amount}
-              onChange={handleAmountChange}
-              placeholder="Enter amount"
-            />
           </div>
           <div className="form-group">
             <label htmlFor="destinationInput" className="form-label">
@@ -239,12 +226,25 @@ async function sendMultiHop(contract, source, hops, receiver, amount, gasLimit){
               placeholder="Enter destination address"
             />
           </div>
+          <div className="form-group">
+            <label htmlFor="amountInput" className="form-label">
+              Enter Amount:
+            </label>
+            <input
+              type="text"
+              id="amountInput"
+              className="form-control"
+              value={amount}
+              onChange={handleAmountChange}
+              placeholder="Enter amount"
+            />
+          </div>
           <div>
             <button className="btn btn-primary" onClick={handleOptimize}>
                 Optimize
             </button>
           </div>
-          {optimalPathData && optimalPathData.status === 'ok' && (
+          {optimalPathData && !optimizing && optimalPathData.status === 'ok' && (
             <div>
               <p>Optimal Path: {optimalPathData.optimalPath}</p>
               <p>Cost: {optimalPathData.cost}</p>
