@@ -30,8 +30,8 @@ Frontend : `cd frontend && npm install`
 Foundry : [Installation Guide](https://book.getfoundry.sh/getting-started/installation)
 
 #### Test
-`forge test`
-`forge coverage`
+`forge test`   
+`forge coverage`   
 
 #### Deploy
 `forge script script/VirtualHop.s.sol:VirtualHopScript --private-key $PRIVATE_KEY --rpc-url $RPC_URL --broadcast`
