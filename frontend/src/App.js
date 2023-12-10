@@ -4,6 +4,9 @@ import './App.css';
 import useMetamask from './useMetamask'; 
 const ethers = require('ethers');
 const VirtualHop = require('./VirtualHopV3.sol/VirtualHopV3.json');
+const Fee = require('./Fee.sol/Fee.json');
+let Graph = require("ngraph.graph");
+let pathX = require("ngraph.path");
 
 function App() {
   const [selectedChain, setSelectedChain] = useState('AVAX');
@@ -21,6 +24,47 @@ function App() {
     networkInfo,
     connectMetamask,
   } = useMetamask();
+
+  const chainConfigs = [
+    {
+        "name": "ETH",
+        "deployedContract": "0xc2575DFc9a9487E3d5a58288A292d1f068A4e5bb",
+        "chainSelector": "16015286601757825753",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_ETH
+    },
+    {
+        "name": "OP",
+        "deployedContract": "0x45776686c138e782Fb9ea26FFd54A6C3EAAbf677",
+        "chainSelector": "2664363617261496610",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_OPTIMISM
+    },
+    {
+        "name": "POL",
+        "deployedContract": "0xA52CB4d41bB098BaC3011664D6a4aA740057948f",
+        "chainSelector": "12532609583862916517",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_POLYGON
+    },
+    {
+        "name": "AVAX",
+        "deployedContract": "0xadD2970aAbA4814E572f39c041b3DE04DC9278c3",
+        "chainSelector": "14767482510784806043",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_AVAX
+    }
+    ,
+    {
+        "name": "BASE",
+        "deployedContract": "0x45776686c138e782fb9ea26ffd54a6c3eaabf677",
+        "chainSelector": "5790810961207155433",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_BASE
+     }
+     ,
+    {
+        "name": "BNB",
+        "deployedContract": "0x45776686c138e782fb9ea26ffd54a6c3eaabf677",
+        "chainSelector": "13264668187771770619",
+        "rpcEndpoint": process.env.REACT_APP_API_KEY_BNB
+    }
+]
 
   let config = {
     "ETH": {
@@ -58,47 +102,168 @@ function App() {
     ['84531', 'BASE']
   ]);
 
-  // for(const[key, value] of Object.entries(config)){
-  //     let provider =  new ethers.providers.JsonRpcProvider(value.rpcUrl);
-  //     let signer = new ethers.Wallet(process.env.PRIVATE_KEY,provider);
-  //     let contract = new ethers.Contract(
-  //         value.contractAddress,
-  //         VirtualHop.abi,
-  //         signer
-  //     );
-  //     value.contractInstance = contract;
-  // }
+  let lastFeeCheckTime = 0
+  const feeCheckInterval = 120000
 
-function createHopList(hops, receiver){
-    let hopList = [];
-    for(const hop of hops){
-        console.log("Adding hop: ", hop)
-        let networkConfig = config[hop];
-        hopList.push(
-        {
-            chainSelector: networkConfig.chainSelector,
-            receiver: networkConfig.contractAddress
-        });
+  async function getAllFees(){
+    let allFees = []
+    for(const chainConfig of chainConfigs){
+        var provider = new ethers.providers.JsonRpcProvider(chainConfig.rpcEndpoint);
+  
+        const feeContract = new ethers.Contract(
+            chainConfig.deployedContract,
+            Fee.abi,
+            provider
+        );
+  
+        let fees = await getFeeX(feeContract, chainConfig.name);
+        allFees.push(fees);
     }
-    hopList[hopList.length-1].receiver = receiver;
-    return hopList;
-}
-
-async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
-    let hopList = createHopList(hops, receiver);
-
-    let output = await contract.sendMessage(
-        amount,
-        gasLimit,
-        hopList,
-        {
-            gasLimit: "1000000"
+  return allFees;
+  }
+  
+  async function getFeeX(contract, network){
+    let fees = [];
+    for(const chainConfig of getOtherChainConfigs(network)) {
+        // console.log(">>>checking Network: ",network)
+        let fee=null
+        try {
+        fee = await contract.getFee(chainConfig.chainSelector, amount, destinationAddress);
+        } catch(err){
+            // console.log("error: ",err);
+            console.log("no connection",network," -> ",chainConfig.name);
         }
-    );
-    console.log("Transaction Hash : %s", output["hash"]);
+        if (fee != null){
+        let etherValue = ethers.utils.formatEther(fee);
+        console.log('%s\t ->\t %s\t : %f', network, chainConfig.name, etherValue);
+                let out = {"network":network, "chainName":chainConfig.name, "etherValue":etherValue}
+        fees.push(out);}
+    }
+    return fees;
+  }
+  
+  //Get chain config for every network except 'network'
+  function getOtherChainConfigs(network){
+    let configs = []
+    for(const chainConfig of chainConfigs){
+        if(network !== chainConfig.name){
+            configs.push(chainConfig);
+        }
+    }
+    return configs;
+  }
 
-    return output["hash"]
-}
+  function createHopList(hops, receiver){
+      let hopList = [];
+      for(const hop of hops){
+          console.log("Adding hop: ", hop)
+          let networkConfig = config[hop];
+          hopList.push(
+          {
+              chainSelector: networkConfig.chainSelector,
+              receiver: networkConfig.contractAddress
+          });
+      }
+      hopList[hopList.length-1].receiver = receiver;
+      return hopList;
+  }
+
+  async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
+      let hopList = createHopList(hops, receiver);
+
+      let output = await contract.sendMessage(
+          amount,
+          gasLimit,
+          hopList,
+          {
+              gasLimit: "1000000"
+          }
+      );
+      console.log("Transaction Hash : %s", output["hash"]);
+
+      return output["hash"]
+  }
+
+  let feeDict = new Map();
+  let allFees = []
+
+  async function createGraph() {
+    let timeSinceLastCheck = Date.now() - lastFeeCheckTime
+    console.log("Time since last check: ", timeSinceLastCheck)
+    if (timeSinceLastCheck > feeCheckInterval) {
+      allFees = await getAllFees();
+      lastFeeCheckTime = Date.now()
+    }
+    else {
+      console.log("Not refreshing fees. They were last retrieved ", timeSinceLastCheck / 1000, " seconds ago")
+    }
+
+    // let allFees = feeConst;
+    let graph = Graph();
+    let graphMeta = [];
+    let feeObj = allFees.flat();
+
+    for (const o of feeObj) {
+      graph.addLink(o.network, o.chainName, {
+        data: o.etherValue,
+        weight: o.etherValue,
+      });
+      graphMeta.push(o);
+      feeDict.set(o.network + o.chainName, o.etherValue);
+    }
+
+    return { graph, graphMeta };
+  }
+
+  async function optimizePath(start, stop){
+
+    let graphStr = await createGraph();
+
+    let pathFinder = pathX.aStar(graphStr.graph, {
+      oriented: true,
+
+      distance(fromNode, toNode, link) {
+        return parseFloat(link.data.weight);
+      },
+    });
+
+    let out = pathFinder.find(start, stop);
+
+    console.log("OUT - Optimal connection");
+
+    const result = out
+      .reverse()
+      .map((obj) => obj.id)
+      .join(">");
+    console.log(":::::", result);
+
+    let feeForDirPath = 99999;
+    let feeForOptPath = [];
+    let feeForOptPathSum = 0;
+
+    for (let i = 0; i < out.length - 1; i++) {
+      console.log(`price: ${i}`, feeDict.get(out[i].id + out[i + 1].id))
+      feeForOptPathSum += parseFloat(feeDict.get(out[i].id + out[i + 1].id))
+    }
+
+    console.log(
+      "Fee for direct path from " +
+      start +
+      " to " +
+      stop +
+      "==" +
+      feeForDirPath
+    );
+
+    console.log("Fee for opt path " + feeForOptPath);
+    console.log("Sum of Fee for opt path " + feeForOptPathSum);
+
+    return({
+      status: 'ok',
+      optimalPath: result, 
+      cost: feeForOptPathSum
+    });
+  }
 
   const handleChainChange = (e) => {
     setSelectedChain(e.target.value);
@@ -116,25 +281,8 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
     setOptimizing(true);
 
     try {
-      const response = await fetch('http://localhost:3048/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          // start: networkInfo.networkName.split(' ')[0], // Source chain abbreviation
-          start: getChainById.get(networkInfo.chainID),    //added local chainId to name map as Metamask doesn't have all names and comes as unknown
-          stop: selectedChain, // Destination chain abbreviation
-        }),
-       
-      });
-      console.log(networkInfo,getChainById.get(networkInfo.chainID))
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      setOptimalPathData(data); // Update state with optimal path data
+      const response = await optimizePath(getChainById.get(networkInfo.chainID), selectedChain);
+      setOptimalPathData(response); // Update state with optimal path data
     } catch (error) {
       console.error('Error optimizing path:', error);
       // Handle error scenarios here
@@ -187,13 +335,11 @@ async function sendMultiHop(contract, hops, receiver, amount, gasLimit){
           <span className="navbar-brand">Virtual Hops</span>
           <ul className="navbar-nav ms-auto align-items-center">
           <li className="nav-item">
-            <a href="#" className="nav-link">
               {!metamaskConnected && (
                 <button className="btn btn-primary" onClick={handleConnectMetamask}>
                   Connect Metamask
                 </button>
               )}
-            </a>
           </li>
           {metamaskConnected && networkInfo && (
             
