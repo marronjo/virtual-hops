@@ -1,0 +1,980 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "decodeStruct",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint64",
+              "name": "destinationChainSelector",
+              "type": "uint64"
+            },
+            {
+              "internalType": "address",
+              "name": "receiver",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "feeToken",
+              "type": "address"
+            }
+          ],
+          "internalType": "struct EncodeStruct.Destination",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "encodeStruct",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "structBytes",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b506105f4806100206000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806301e941a3146100465780634cf63328146100645780636892371714610079575b600080fd5b61004e610081565b60405161005b9190610312565b60405180910390f35b61006c6101b6565b60405161005b9190610360565b61004e610284565b6040805160a08101825267de41ba4fc9d91ad9815273779877a7b0d9e8603169ddbd7836e478b462478960208083019190915273097d90c9d3e0b50ca60e1ae45f6a81010f9fb53482840152670de0b6b3a764000060608381019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a056080840152925161010791839101610360565b60405160208183030381529060405260009081610124919061044f565b5060008054610132906103c6565b80601f016020809104026020016040519081016040528092919081815260200182805461015e906103c6565b80156101ab5780601f10610180576101008083540402835291602001916101ab565b820191906000526020600020905b81548152906001019060200180831161018e57829003601f168201915b505050505091505090565b6040805160a081018252600080825260208201819052918101829052606081018290526080810191909152600080546101ee906103c6565b80601f016020809104026020016040519081016040528092919081815260200182805461021a906103c6565b80156102675780601f1061023c57610100808354040283529160200191610267565b820191906000526020600020905b81548152906001019060200180831161024a57829003601f168201915b505050505080602001905181019061027f919061052b565b905090565b60008054610291906103c6565b80601f01602080910402602001604051908101604052809291908181526020018280546102bd906103c6565b801561030a5780601f106102df5761010080835404028352916020019161030a565b820191906000526020600020905b8154815290600101906020018083116102ed57829003601f168201915b505050505081565b600060208083528351808285015260005b8181101561033f57858101830151858201604001528201610323565b506000604082860101526040601f19601f8301168501019250505092915050565b815167ffffffffffffffff1681526020808301516001600160a01b039081169183019190915260408084015182169083015260608084015190830152608092830151169181019190915260a00190565b634e487b7160e01b600052604160045260246000fd5b600181811c908216806103da57607f821691505b6020821081036103fa57634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561044a57600081815260208120601f850160051c810160208610156104275750805b601f850160051c820191505b8181101561044657828155600101610433565b5050505b505050565b815167ffffffffffffffff811115610469576104696103b0565b61047d8161047784546103c6565b84610400565b602080601f8311600181146104b2576000841561049a5750858301515b600019600386901b1c1916600185901b178555610446565b600085815260208120601f198616915b828110156104e1578886015182559484019460019091019084016104c2565b50858210156104ff5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b80516001600160a01b038116811461052657600080fd5b919050565b600060a0828403121561053d57600080fd5b60405160a0810167ffffffffffffffff8282108183111715610561576105616103b0565b8160405284519150808216821461057757600080fd5b5081526105866020840161050f565b60208201526105976040840161050f565b6040820152606083015160608201526105b26080840161050f565b6080820152939250505056fea2646970667358221220ea380bdb0da626417978aebffd400c7675953ffa839357337085626757ac54eb64736f6c63430008130033",
+    "sourceMap": "64:962:26:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806301e941a3146100465780634cf63328146100645780636892371714610079575b600080fd5b61004e610081565b60405161005b9190610312565b60405180910390f35b61006c6101b6565b60405161005b9190610360565b61004e610284565b6040805160a08101825267de41ba4fc9d91ad9815273779877a7b0d9e8603169ddbd7836e478b462478960208083019190915273097d90c9d3e0b50ca60e1ae45f6a81010f9fb53482840152670de0b6b3a764000060608381019190915273fd57b4ddbf88a4e07ff4e34c487b99af2fe82a056080840152925161010791839101610360565b60405160208183030381529060405260009081610124919061044f565b5060008054610132906103c6565b80601f016020809104026020016040519081016040528092919081815260200182805461015e906103c6565b80156101ab5780601f10610180576101008083540402835291602001916101ab565b820191906000526020600020905b81548152906001019060200180831161018e57829003601f168201915b505050505091505090565b6040805160a081018252600080825260208201819052918101829052606081018290526080810191909152600080546101ee906103c6565b80601f016020809104026020016040519081016040528092919081815260200182805461021a906103c6565b80156102675780601f1061023c57610100808354040283529160200191610267565b820191906000526020600020905b81548152906001019060200180831161024a57829003601f168201915b505050505080602001905181019061027f919061052b565b905090565b60008054610291906103c6565b80601f01602080910402602001604051908101604052809291908181526020018280546102bd906103c6565b801561030a5780601f106102df5761010080835404028352916020019161030a565b820191906000526020600020905b8154815290600101906020018083116102ed57829003601f168201915b505050505081565b600060208083528351808285015260005b8181101561033f57858101830151858201604001528201610323565b506000604082860101526040601f19601f8301168501019250505092915050565b815167ffffffffffffffff1681526020808301516001600160a01b039081169183019190915260408084015182169083015260608084015190830152608092830151169181019190915260a00190565b634e487b7160e01b600052604160045260246000fd5b600181811c908216806103da57607f821691505b6020821081036103fa57634e487b7160e01b600052602260045260246000fd5b50919050565b601f82111561044a57600081815260208120601f850160051c810160208610156104275750805b601f850160051c820191505b8181101561044657828155600101610433565b5050505b505050565b815167ffffffffffffffff811115610469576104696103b0565b61047d8161047784546103c6565b84610400565b602080601f8311600181146104b2576000841561049a5750858301515b600019600386901b1c1916600185901b178555610446565b600085815260208120601f198616915b828110156104e1578886015182559484019460019091019084016104c2565b50858210156104ff5787850151600019600388901b60f8161c191681555b5050505050600190811b01905550565b80516001600160a01b038116811461052657600080fd5b919050565b600060a0828403121561053d57600080fd5b60405160a0810167ffffffffffffffff8282108183111715610561576105616103b0565b8160405284519150808216821461057757600080fd5b5081526105866020840161050f565b60208201526105976040840161050f565b6040820152606083015160608201526105b26080840161050f565b6080820152939250505056fea2646970667358221220ea380bdb0da626417978aebffd400c7675953ffa839357337085626757ac54eb64736f6c63430008130033",
+    "sourceMap": "64:962:26:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;404:418;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;899:125;;;:::i;:::-;;;;;;;:::i;265:24::-;;;:::i;404:418::-;499:241;;;;;;;;524:20;499:241;;558:42;499:241;;;;;;;;614:42;499:241;;;;670:4;443:12;499:241;;;;;;;688:42;499:241;;;;764:23;;;;499:241;;764:23;;:::i;:::-;;;;;;;;;;;;;750:11;:37;;;;;;:::i;:::-;;804:11;797:18;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;404:418;:::o;899:125::-;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;990:11:26;979:38;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;972:45;;899:125;:::o;265:24::-;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;14:546:33:-;124:4;153:2;182;171:9;164:21;214:6;208:13;257:6;252:2;241:9;237:18;230:34;282:1;292:140;306:6;303:1;300:13;292:140;;;401:14;;;397:23;;391:30;367:17;;;386:2;363:26;356:66;321:10;;292:140;;;296:3;481:1;476:2;467:6;456:9;452:22;448:31;441:42;551:2;544;540:7;535:2;527:6;523:15;519:29;508:9;504:45;500:54;492:62;;;;14:546;;;;:::o;565:628::-;794:13;;809:18;790:38;772:57;;876:4;864:17;;;858:24;-1:-1:-1;;;;;958:21:33;;;936:20;;;929:51;;;;1040:4;1028:17;;;1022:24;1018:33;;996:20;;;989:63;1108:4;1096:17;;;1090:24;1068:20;;;1061:54;1175:4;1163:17;;;1157:24;1153:33;1131:20;;;1124:63;;;;759:3;744:19;;565:628::o;1198:127::-;1259:10;1254:3;1250:20;1247:1;1240:31;1290:4;1287:1;1280:15;1314:4;1311:1;1304:15;1330:380;1409:1;1405:12;;;;1452;;;1473:61;;1527:4;1519:6;1515:17;1505:27;;1473:61;1580:2;1572:6;1569:14;1549:18;1546:38;1543:161;;1626:10;1621:3;1617:20;1614:1;1607:31;1661:4;1658:1;1651:15;1689:4;1686:1;1679:15;1543:161;;1330:380;;;:::o;1840:544::-;1941:2;1936:3;1933:11;1930:448;;;1977:1;2002:5;1998:2;1991:17;2047:4;2043:2;2033:19;2117:2;2105:10;2101:19;2098:1;2094:27;2088:4;2084:38;2153:4;2141:10;2138:20;2135:47;;;-1:-1:-1;2176:4:33;2135:47;2231:2;2226:3;2222:12;2219:1;2215:20;2209:4;2205:31;2195:41;;2286:82;2304:2;2297:5;2294:13;2286:82;;;2349:17;;;2330:1;2319:13;2286:82;;;2290:3;;;1930:448;1840:544;;;:::o;2560:1348::-;2684:3;2678:10;2711:18;2703:6;2700:30;2697:56;;;2733:18;;:::i;:::-;2762:96;2851:6;2811:38;2843:4;2837:11;2811:38;:::i;:::-;2805:4;2762:96;:::i;:::-;2913:4;;2977:2;2966:14;;2994:1;2989:662;;;;3695:1;3712:6;3709:89;;;-1:-1:-1;3764:19:33;;;3758:26;3709:89;-1:-1:-1;;2517:1:33;2513:11;;;2509:24;2505:29;2495:40;2541:1;2537:11;;;2492:57;3811:81;;2959:943;;2989:662;1787:1;1780:14;;;1824:4;1811:18;;-1:-1:-1;;3025:20:33;;;3142:236;3156:7;3153:1;3150:14;3142:236;;;3245:19;;;3239:26;3224:42;;3337:27;;;;3305:1;3293:14;;;;3172:19;;3142:236;;;3146:3;3406:6;3397:7;3394:19;3391:201;;;3467:19;;;3461:26;-1:-1:-1;;3550:1:33;3546:14;;;3562:3;3542:24;3538:37;3534:42;3519:58;3504:74;;3391:201;-1:-1:-1;;;;;3638:1:33;3622:14;;;3618:22;3605:36;;-1:-1:-1;2560:1348:33:o;3913:177::-;3992:13;;-1:-1:-1;;;;;4034:31:33;;4024:42;;4014:70;;4080:1;4077;4070:12;4014:70;3913:177;;;:::o;4095:869::-;4195:6;4248:3;4236:9;4227:7;4223:23;4219:33;4216:53;;;4265:1;4262;4255:12;4216:53;4298:2;4292:9;4340:3;4332:6;4328:16;4363:18;4431:6;4419:10;4416:22;4411:2;4399:10;4396:18;4393:46;4390:72;;;4442:18;;:::i;:::-;4482:10;4478:2;4471:22;4521:9;4515:16;4502:29;;4571:2;4564:5;4560:14;4553:5;4550:25;4540:53;;4589:1;4586;4579:12;4540:53;-1:-1:-1;4602:21:33;;4656:49;4701:2;4686:18;;4656:49;:::i;:::-;4651:2;4643:6;4639:15;4632:74;4739:49;4784:2;4773:9;4769:18;4739:49;:::i;:::-;4734:2;4726:6;4722:15;4715:74;4843:2;4832:9;4828:18;4822:25;4817:2;4809:6;4805:15;4798:50;4882;4927:3;4916:9;4912:19;4882:50;:::i;:::-;4876:3;4864:16;;4857:76;4868:6;4095:869;-1:-1:-1;;;4095:869:33:o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "decodeStruct()": "4cf63328",
+    "encodeStruct()": "01e941a3",
+    "structBytes()": "68923717"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"decodeStruct\",\"outputs\":[{\"components\":[{\"internalType\":\"uint64\",\"name\":\"destinationChainSelector\",\"type\":\"uint64\"},{\"internalType\":\"address\",\"name\":\"receiver\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"feeToken\",\"type\":\"address\"}],\"internalType\":\"struct EncodeStruct.Destination\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"encodeStruct\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"structBytes\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"decodeStruct()\":{\"notice\":\"decode byte array back into Destination struct\"},\"encodeStruct()\":{\"notice\":\"create new Destination struct encode into byte array return byte array\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/examples/EncodeStruct.sol\":\"EncodeStruct\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/\",\":@chainlink/contracts/=node_modules/@chainlink/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"src/examples/EncodeStruct.sol\":{\"keccak256\":\"0xd46bd441329b5aafc70ab3c54f3e143f1c7172f9a9f685646bb8f5cfde3c19e2\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://c3530107f50c3fa16ade9ffeacff1c5b4a6b60b24c9783efe6648113a8ad6746\",\"dweb:/ipfs/QmZnLDQ1EH7DNp7ATWKsy1NYK6x73TX4TWf3znxHHToTGL\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.19+commit.7dd6d404"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "decodeStruct",
+          "outputs": [
+            {
+              "internalType": "struct EncodeStruct.Destination",
+              "name": "",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint64",
+                  "name": "destinationChainSelector",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "address",
+                  "name": "receiver",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "token",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "amount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "address",
+                  "name": "feeToken",
+                  "type": "address"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "encodeStruct",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "structBytes",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "decodeStruct()": {
+            "notice": "decode byte array back into Destination struct"
+          },
+          "encodeStruct()": {
+            "notice": "create new Destination struct encode into byte array return byte array"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@chainlink/contracts-ccip/=node_modules/@chainlink/contracts-ccip/",
+        "@chainlink/contracts/=node_modules/@chainlink/contracts/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "forge-std/=lib/forge-std/src/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/examples/EncodeStruct.sol": "EncodeStruct"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/examples/EncodeStruct.sol": {
+        "keccak256": "0xd46bd441329b5aafc70ab3c54f3e143f1c7172f9a9f685646bb8f5cfde3c19e2",
+        "urls": [
+          "bzz-raw://c3530107f50c3fa16ade9ffeacff1c5b4a6b60b24c9783efe6648113a8ad6746",
+          "dweb:/ipfs/QmZnLDQ1EH7DNp7ATWKsy1NYK6x73TX4TWf3znxHHToTGL"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/examples/EncodeStruct.sol",
+    "id": 40389,
+    "exportedSymbols": {
+      "EncodeStruct": [
+        40388
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "39:987:26",
+    "nodes": [
+      {
+        "id": 40332,
+        "nodeType": "PragmaDirective",
+        "src": "39:23:26",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".19"
+        ]
+      },
+      {
+        "id": 40388,
+        "nodeType": "ContractDefinition",
+        "src": "64:962:26",
+        "nodes": [
+          {
+            "id": 40343,
+            "nodeType": "StructDefinition",
+            "src": "93:166:26",
+            "nodes": [],
+            "canonicalName": "EncodeStruct.Destination",
+            "members": [
+              {
+                "constant": false,
+                "id": 40334,
+                "mutability": "mutable",
+                "name": "destinationChainSelector",
+                "nameLocation": "129:24:26",
+                "nodeType": "VariableDeclaration",
+                "scope": 40343,
+                "src": "122:31:26",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 40333,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "122:6:26",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 40336,
+                "mutability": "mutable",
+                "name": "receiver",
+                "nameLocation": "171:8:26",
+                "nodeType": "VariableDeclaration",
+                "scope": 40343,
+                "src": "163:16:26",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 40335,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "163:7:26",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 40338,
+                "mutability": "mutable",
+                "name": "token",
+                "nameLocation": "197:5:26",
+                "nodeType": "VariableDeclaration",
+                "scope": 40343,
+                "src": "189:13:26",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 40337,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "189:7:26",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 40340,
+                "mutability": "mutable",
+                "name": "amount",
+                "nameLocation": "220:6:26",
+                "nodeType": "VariableDeclaration",
+                "scope": 40343,
+                "src": "212:14:26",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 40339,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "212:7:26",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 40342,
+                "mutability": "mutable",
+                "name": "feeToken",
+                "nameLocation": "244:8:26",
+                "nodeType": "VariableDeclaration",
+                "scope": 40343,
+                "src": "236:16:26",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 40341,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "236:7:26",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Destination",
+            "nameLocation": "100:11:26",
+            "scope": 40388,
+            "visibility": "public"
+          },
+          {
+            "id": 40345,
+            "nodeType": "VariableDeclaration",
+            "src": "265:24:26",
+            "nodes": [],
+            "constant": false,
+            "functionSelector": "68923717",
+            "mutability": "mutable",
+            "name": "structBytes",
+            "nameLocation": "278:11:26",
+            "scope": 40388,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes_storage",
+              "typeString": "bytes"
+            },
+            "typeName": {
+              "id": 40344,
+              "name": "bytes",
+              "nodeType": "ElementaryTypeName",
+              "src": "265:5:26",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes_storage_ptr",
+                "typeString": "bytes"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "id": 40372,
+            "nodeType": "FunctionDefinition",
+            "src": "404:418:26",
+            "nodes": [],
+            "body": {
+              "id": 40371,
+              "nodeType": "Block",
+              "src": "456:366:26",
+              "nodes": [],
+              "statements": [
+                {
+                  "assignments": [
+                    40353
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 40353,
+                      "mutability": "mutable",
+                      "name": "destination",
+                      "nameLocation": "485:11:26",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 40371,
+                      "src": "466:30:26",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                        "typeString": "struct EncodeStruct.Destination"
+                      },
+                      "typeName": {
+                        "id": 40352,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 40351,
+                          "name": "Destination",
+                          "nameLocations": [
+                            "466:11:26"
+                          ],
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 40343,
+                          "src": "466:11:26"
+                        },
+                        "referencedDeclaration": 40343,
+                        "src": "466:11:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Destination_$40343_storage_ptr",
+                          "typeString": "struct EncodeStruct.Destination"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 40361,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "hexValue": "3136303135323836363031373537383235373533",
+                        "id": 40355,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "524:20:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_16015286601757825753_by_1",
+                          "typeString": "int_const 16015286601757825753"
+                        },
+                        "value": "16015286601757825753"
+                      },
+                      {
+                        "hexValue": "307837373938373741374230443945383630333136394464624437383336653437386234363234373839",
+                        "id": 40356,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "558:42:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0x779877A7B0D9E8603169DdbD7836e478b4624789"
+                      },
+                      {
+                        "hexValue": "307830393744393063396433453042353043613630653161653435463641383130313066394642353334",
+                        "id": 40357,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "614:42:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0x097D90c9d3E0B50Ca60e1ae45F6A81010f9FB534"
+                      },
+                      {
+                        "hexValue": "31653138",
+                        "id": 40358,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "670:4:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                          "typeString": "int_const 1000000000000000000"
+                        },
+                        "value": "1e18"
+                      },
+                      {
+                        "hexValue": "307846643537623464644266383861346530376646346533344334383762393961663246653832613035",
+                        "id": 40359,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "number",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "688:42:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "value": "0xFd57b4ddBf88a4e07fF4e34C487b99af2Fe82a05"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_rational_16015286601757825753_by_1",
+                          "typeString": "int_const 16015286601757825753"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_rational_1000000000000000000_by_1",
+                          "typeString": "int_const 1000000000000000000"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      ],
+                      "id": 40354,
+                      "name": "Destination",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40343,
+                      "src": "499:11:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_Destination_$40343_storage_ptr_$",
+                        "typeString": "type(struct EncodeStruct.Destination storage pointer)"
+                      }
+                    },
+                    "id": 40360,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "499:241:26",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                      "typeString": "struct EncodeStruct.Destination memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "466:274:26"
+                },
+                {
+                  "expression": {
+                    "id": 40367,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 40362,
+                      "name": "structBytes",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 40345,
+                      "src": "750:11:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_storage",
+                        "typeString": "bytes storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "arguments": [
+                        {
+                          "id": 40365,
+                          "name": "destination",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 40353,
+                          "src": "775:11:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                            "typeString": "struct EncodeStruct.Destination memory"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                            "typeString": "struct EncodeStruct.Destination memory"
+                          }
+                        ],
+                        "expression": {
+                          "id": 40363,
+                          "name": "abi",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": -1,
+                          "src": "764:3:26",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_magic_abi",
+                            "typeString": "abi"
+                          }
+                        },
+                        "id": 40364,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "memberLocation": "768:6:26",
+                        "memberName": "encode",
+                        "nodeType": "MemberAccess",
+                        "src": "764:10:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_function_abiencode_pure$__$returns$_t_bytes_memory_ptr_$",
+                          "typeString": "function () pure returns (bytes memory)"
+                        }
+                      },
+                      "id": 40366,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "functionCall",
+                      "lValueRequested": false,
+                      "nameLocations": [],
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "764:23:26",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes_memory_ptr",
+                        "typeString": "bytes memory"
+                      }
+                    },
+                    "src": "750:37:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "id": 40368,
+                  "nodeType": "ExpressionStatement",
+                  "src": "750:37:26"
+                },
+                {
+                  "expression": {
+                    "id": 40369,
+                    "name": "structBytes",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 40345,
+                    "src": "804:11:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage",
+                      "typeString": "bytes storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 40350,
+                  "id": 40370,
+                  "nodeType": "Return",
+                  "src": "797:18:26"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 40346,
+              "nodeType": "StructuredDocumentation",
+              "src": "296:103:26",
+              "text": " create new Destination struct\n encode into byte array\n return byte array"
+            },
+            "functionSelector": "01e941a3",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "encodeStruct",
+            "nameLocation": "413:12:26",
+            "parameters": {
+              "id": 40347,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "425:2:26"
+            },
+            "returnParameters": {
+              "id": 40350,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 40349,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40372,
+                  "src": "443:12:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 40348,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "443:5:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "442:14:26"
+            },
+            "scope": 40388,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "id": 40387,
+            "nodeType": "FunctionDefinition",
+            "src": "899:125:26",
+            "nodes": [],
+            "body": {
+              "id": 40386,
+              "nodeType": "Block",
+              "src": "962:62:26",
+              "nodes": [],
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 40381,
+                        "name": "structBytes",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 40345,
+                        "src": "990:11:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes_storage",
+                          "typeString": "bytes storage ref"
+                        }
+                      },
+                      {
+                        "components": [
+                          {
+                            "id": 40382,
+                            "name": "Destination",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 40343,
+                            "src": "1004:11:26",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_struct$_Destination_$40343_storage_ptr_$",
+                              "typeString": "type(struct EncodeStruct.Destination storage pointer)"
+                            }
+                          }
+                        ],
+                        "id": 40383,
+                        "isConstant": false,
+                        "isInlineArray": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "lValueRequested": false,
+                        "nodeType": "TupleExpression",
+                        "src": "1003:13:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_Destination_$40343_storage_ptr_$",
+                          "typeString": "type(struct EncodeStruct.Destination storage pointer)"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes_storage",
+                          "typeString": "bytes storage ref"
+                        },
+                        {
+                          "typeIdentifier": "t_type$_t_struct$_Destination_$40343_storage_ptr_$",
+                          "typeString": "type(struct EncodeStruct.Destination storage pointer)"
+                        }
+                      ],
+                      "expression": {
+                        "id": 40379,
+                        "name": "abi",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -1,
+                        "src": "979:3:26",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_abi",
+                          "typeString": "abi"
+                        }
+                      },
+                      "id": 40380,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberLocation": "983:6:26",
+                      "memberName": "decode",
+                      "nodeType": "MemberAccess",
+                      "src": "979:10:26",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_abidecode_pure$__$returns$__$",
+                        "typeString": "function () pure"
+                      }
+                    },
+                    "id": 40384,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "979:38:26",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                      "typeString": "struct EncodeStruct.Destination memory"
+                    }
+                  },
+                  "functionReturnParameters": 40378,
+                  "id": 40385,
+                  "nodeType": "Return",
+                  "src": "972:45:26"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 40373,
+              "nodeType": "StructuredDocumentation",
+              "src": "829:65:26",
+              "text": " decode byte array back into Destination struct"
+            },
+            "functionSelector": "4cf63328",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "decodeStruct",
+            "nameLocation": "908:12:26",
+            "parameters": {
+              "id": 40374,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "920:2:26"
+            },
+            "returnParameters": {
+              "id": 40378,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 40377,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 40387,
+                  "src": "943:18:26",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Destination_$40343_memory_ptr",
+                    "typeString": "struct EncodeStruct.Destination"
+                  },
+                  "typeName": {
+                    "id": 40376,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 40375,
+                      "name": "Destination",
+                      "nameLocations": [
+                        "943:11:26"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 40343,
+                      "src": "943:11:26"
+                    },
+                    "referencedDeclaration": 40343,
+                    "src": "943:11:26",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Destination_$40343_storage_ptr",
+                      "typeString": "struct EncodeStruct.Destination"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "942:20:26"
+            },
+            "scope": 40388,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "EncodeStruct",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          40388
+        ],
+        "name": "EncodeStruct",
+        "nameLocation": "73:12:26",
+        "scope": 40389,
+        "usedErrors": []
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 26
+}
