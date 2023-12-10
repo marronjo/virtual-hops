@@ -1,0 +1,121 @@
+slither . --print function-id
+
+INFO:Printers:
+IRouterClient:
++------------------------------------------------------------------+------------+
+| Name                                                             |         ID |
++------------------------------------------------------------------+------------+
+| isChainSupported(uint64)                                         | 0xa48a9058 |
+| getSupportedTokens(uint64)                                       | 0xfbca3b74 |
+| getFee(uint64,(bytes,bytes,(address,uint256)[],address,bytes))   | 0x20487ded |
+| ccipSend(uint64,(bytes,bytes,(address,uint256)[],address,bytes)) | 0x96f4e9f9 |
++------------------------------------------------------------------+------------+
+
+Client:
++-------------------------+------------+
+| Name                    |         ID |
++-------------------------+------------+
+| EVM_EXTRA_ARGS_V1_TAG() | 0x3ab8c0d0 |
++-------------------------+------------+
+
+IERC20:
++---------------------------------------+------------+
+| Name                                  |         ID |
++---------------------------------------+------------+
+| totalSupply()                         | 0x18160ddd |
+| balanceOf(address)                    | 0x70a08231 |
+| transfer(address,uint256)             | 0xa9059cbb |
+| allowance(address,address)            | 0xdd62ed3e |
+| approve(address,uint256)              | 0x095ea7b3 |
+| transferFrom(address,address,uint256) | 0x23b872dd |
++---------------------------------------+------------+
+
+VirtualHop:
++---------------------------------------------------------------+------------+
+| Name                                                          |         ID |
++---------------------------------------------------------------+------------+
+| supportsInterface(bytes4)                                     | 0x01ffc9a7 |
+| ccipReceive((bytes32,uint64,bytes,bytes,(address,uint256)[])) | 0x85572ffb |
+| getRouter()                                                   | 0xb0f479a1 |
+| constructor(address,address,address)                          | 0x6dd23b5b |
+| receive()                                                     | 0xa3e76c0f |
+| sendMessage(uint256,uint256,(address,uint64)[])               | 0x52523d82 |
++---------------------------------------------------------------+------------+
+
+EncodeStruct:
++----------------+------------+
+| Name           |         ID |
++----------------+------------+
+| encodeStruct() | 0x01e941a3 |
+| decodeStruct() | 0x4cf63328 |
+| structBytes()  | 0x68923717 |
++----------------+------------+
+
+Sender:
++------+----+
+| Name | ID |
++------+----+
++------+----+
+
+SendHello:
++-------------------------------------+------------+
+| Name                                |         ID |
++-------------------------------------+------------+
+| constructor(address,address,uint64) | 0x4a1ba025 |
+| sendMessage()                       | 0xe5aed28a |
++-------------------------------------+------------+
+
+Fee:
++--------------------------------------+------------+
+| Name                                 |         ID |
++--------------------------------------+------------+
+| constructor(address,address,address) | 0x6dd23b5b |
+| getFee(uint64,uint256,address)       | 0x6740c4b3 |
++--------------------------------------+------------+
+
+HopV1:
++---------------------------------------------------------------+------------+
+| Name                                                          |         ID |
++---------------------------------------------------------------+------------+
+| supportsInterface(bytes4)                                     | 0x01ffc9a7 |
+| ccipReceive((bytes32,uint64,bytes,bytes,(address,uint256)[])) | 0x85572ffb |
+| getRouter()                                                   | 0xb0f479a1 |
+| constructor(address,address,address)                          | 0x6dd23b5b |
+| receive()                                                     | 0xa3e76c0f |
++---------------------------------------------------------------+------------+
+
+SendV1:
++-------------------------------------------------------------+------------+
+| Name                                                        |         ID |
++-------------------------------------------------------------+------------+
+| constructor(address,address,address)                        | 0x6dd23b5b |
+| _sendMessage(uint64,address,uint256,uint256,uint64,address) | 0x1ab8f4fc |
+| receive()                                                   | 0xa3e76c0f |
++-------------------------------------------------------------+------------+
+
+VirtualHop:
++---------------------------------------------------------------+------------+
+| Name                                                          |         ID |
++---------------------------------------------------------------+------------+
+| supportsInterface(bytes4)                                     | 0x01ffc9a7 |
+| ccipReceive((bytes32,uint64,bytes,bytes,(address,uint256)[])) | 0x85572ffb |
+| getRouter()                                                   | 0xb0f479a1 |
+| constructor(address,address,address)                          | 0x6dd23b5b |
+| sendMessage(uint64,address,uint256,uint256,uint64,address)    | 0x40425c8e |
+| getFee(uint64,address,uint256,uint256,uint64,address)         | 0x3884d375 |
+| receive()                                                     | 0xa3e76c0f |
++---------------------------------------------------------------+------------+
+
+VirtualHopV3:
++---------------------------------------------------------------+------------+
+| Name                                                          |         ID |
++---------------------------------------------------------------+------------+
+| supportsInterface(bytes4)                                     | 0x01ffc9a7 |
+| ccipReceive((bytes32,uint64,bytes,bytes,(address,uint256)[])) | 0x85572ffb |
+| getRouter()                                                   | 0xb0f479a1 |
+| constructor(address,address,address)                          | 0x6dd23b5b |
+| sendMessage(uint256,uint256,(uint64,address)[])               | 0xd249a512 |
+| receive()                                                     | 0xa3e76c0f |
++---------------------------------------------------------------+------------+
+
+INFO:Slither:. analyzed (19 contracts)

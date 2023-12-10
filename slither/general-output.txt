@@ -1,0 +1,186 @@
+slither .
+
+INFO:Detectors:
+VirtualHop is re-used:
+	- VirtualHop (src/VirtualHop.sol#10-71)
+	- VirtualHop (src/v2/VirtualHop.sol#10-61)
+Sender is re-used:
+	- Sender (src/Sender.sol#8-97)
+	- Sender (src/examples/Sender.sol#8-78)
+	- Sender (src/v2/Sender.sol#8-88)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#name-reused
+INFO:Detectors:
+Contract locking ether found:
+	Contract VirtualHop (src/VirtualHop.sol#10-71) has payable functions:
+	 - VirtualHop.receive() (src/VirtualHop.sol#26)
+	But does not have a function to withdraw the ether
+Contract locking ether found:
+	Contract HopV1 (src/v1/HopV1.sol#9-89) has payable functions:
+	 - HopV1.receive() (src/v1/HopV1.sol#87)
+	But does not have a function to withdraw the ether
+Contract locking ether found:
+	Contract SendV1 (src/v1/SendV1.sol#8-91) has payable functions:
+	 - SendV1.receive() (src/v1/SendV1.sol#89)
+	But does not have a function to withdraw the ether
+Contract locking ether found:
+	Contract VirtualHopV3 (src/v3/VirtualHopV3.sol#10-63) has payable functions:
+	 - VirtualHopV3.receive() (src/v3/VirtualHopV3.sol#62)
+	But does not have a function to withdraw the ether
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#contracts-that-lock-ether
+INFO:Detectors:
+Sender._sendMessage(uint64,address,address,uint256,address,string) (src/examples/Sender.sol#20-51) ignores return value by IERC20(_feeToken).approve(address(router),fee) (src/examples/Sender.sol#43)
+Sender._sendMessage(uint64,address,address,uint256,address,string) (src/examples/Sender.sol#20-51) ignores return value by IERC20(_token).approve(address(router),_amount) (src/examples/Sender.sol#44)
+HelloSender._sendMessage(uint64,address,address,string) (src/examples/hello/HelloSender.sol#18-44) ignores return value by IERC20(_feeToken).approve(address(router),fee) (src/examples/hello/HelloSender.sol#37)
+HopV1._sendMessage(uint64,address,uint256) (src/v1/HopV1.sol#38-62) ignores return value by IERC20(linkToken).approve(address(router),fee) (src/v1/HopV1.sol#56)
+HopV1._sendMessage(uint64,address,uint256) (src/v1/HopV1.sol#38-62) ignores return value by IERC20(bnmToken).approve(address(router),amount) (src/v1/HopV1.sol#57)
+SendV1._sendMessage(uint64,address,uint256,uint256,uint64,address) (src/v1/SendV1.sol#28-59) ignores return value by IERC20(linkToken).approve(address(router),fee) (src/v1/SendV1.sol#51)
+SendV1._sendMessage(uint64,address,uint256,uint256,uint64,address) (src/v1/SendV1.sol#28-59) ignores return value by IERC20(bnmToken).approve(address(router),amount) (src/v1/SendV1.sol#52)
+Sender._sendMessage(uint64,address,uint256,uint256,bytes) (src/v2/Sender.sol#20-41) ignores return value by IERC20(linkToken).approve(address(router),fee) (src/v2/Sender.sol#37)
+Sender._sendMessage(uint64,address,uint256,uint256,bytes) (src/v2/Sender.sol#20-41) ignores return value by IERC20(bnmToken).approve(address(router),amount) (src/v2/Sender.sol#38)
+SenderV3._sendMessage(uint64,address,uint256,uint256,bytes) (src/v3/SenderV3.sol#20-41) ignores return value by IERC20(linkToken).approve(address(router),fee) (src/v3/SenderV3.sol#37)
+SenderV3._sendMessage(uint64,address,uint256,uint256,bytes) (src/v3/SenderV3.sol#20-41) ignores return value by IERC20(bnmToken).approve(address(router),amount) (src/v3/SenderV3.sol#38)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+SendHello.constructor(address,address,uint64)._link (src/examples/hello/SendHello.sol#17) lacks a zero-check on :
+		- linkToken = _link (src/examples/hello/SendHello.sol#18)
+Fee.constructor(address,address,address)._link (src/v1/Fee.sol#13) lacks a zero-check on :
+		- linkToken = _link (src/v1/Fee.sol#15)
+Fee.constructor(address,address,address)._transferToken (src/v1/Fee.sol#13) lacks a zero-check on :
+		- transferToken = _transferToken (src/v1/Fee.sol#16)
+HopV1.constructor(address,address,address)._linkToken (src/v1/HopV1.sol#25) lacks a zero-check on :
+		- linkToken = _linkToken (src/v1/HopV1.sol#27)
+HopV1.constructor(address,address,address)._bnmToken (src/v1/HopV1.sol#25) lacks a zero-check on :
+		- bnmToken = _bnmToken (src/v1/HopV1.sol#28)
+SendV1.constructor(address,address,address)._link (src/v1/SendV1.sol#22) lacks a zero-check on :
+		- linkToken = _link (src/v1/SendV1.sol#24)
+SendV1.constructor(address,address,address)._bnmToken (src/v1/SendV1.sol#22) lacks a zero-check on :
+		- bnmToken = _bnmToken (src/v1/SendV1.sol#25)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Reentrancy in VirtualHop._ccipReceive(Client.Any2EVMMessage) (src/VirtualHop.sol#38-44):
+	External calls:
+	- messageId = _encodeDataSendMessage(amount,gasLimit,hops) (src/VirtualHop.sol#42)
+		- ! IERC20(linkToken).approve(address(router),fee) (src/Sender.sol#43)
+		- ! IERC20(bnmToken).approve(address(router),amount) (src/Sender.sol#47)
+		- messageId = router.ccipSend(chainSelector,message) (src/Sender.sol#51)
+	Event emitted after the call(s):
+	- MessageHopped(messageId) (src/VirtualHop.sol#43)
+Reentrancy in VirtualHop._ccipReceive(Client.Any2EVMMessage) (src/v2/VirtualHop.sol#25-32):
+	External calls:
+	- messageId = _sendMessage(hopData.chainSelector,hopData.receiver,hopData.amount,0,data) (src/v2/VirtualHop.sol#30)
+		- IERC20(linkToken).approve(address(router),fee) (src/v2/Sender.sol#37)
+		- IERC20(bnmToken).approve(address(router),amount) (src/v2/Sender.sol#38)
+		- messageId = router.ccipSend(chainSelector,message) (src/v2/Sender.sol#40)
+	Event emitted after the call(s):
+	- MessageHopped(messageId) (src/v2/VirtualHop.sol#31)
+Reentrancy in VirtualHopV3._ccipReceive(Client.Any2EVMMessage) (src/v3/VirtualHopV3.sol#24-36):
+	External calls:
+	- messageId = _sendMessage(nextHop.chainSelector,nextHop.receiver,amount,gasLimit,hopData) (src/v3/VirtualHopV3.sol#34)
+		- IERC20(linkToken).approve(address(router),fee) (src/v3/SenderV3.sol#37)
+		- IERC20(bnmToken).approve(address(router),amount) (src/v3/SenderV3.sol#38)
+		- messageId = router.ccipSend(chainSelector,message) (src/v3/SenderV3.sol#40)
+	Event emitted after the call(s):
+	- MessageHopped(messageId) (src/v3/VirtualHopV3.sol#35)
+Reentrancy in Sender._sendMessage(uint64,address,address,uint256,address,string) (src/examples/Sender.sol#20-51):
+	External calls:
+	- IERC20(_feeToken).approve(address(router),fee) (src/examples/Sender.sol#43)
+	- IERC20(_token).approve(address(router),_amount) (src/examples/Sender.sol#44)
+	- messageId = router.ccipSend(_destinationChainSelector,message) (src/examples/Sender.sol#46)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/examples/Sender.sol#48)
+Reentrancy in HelloSender._sendMessage(uint64,address,address,string) (src/examples/hello/HelloSender.sol#18-44):
+	External calls:
+	- IERC20(_feeToken).approve(address(router),fee) (src/examples/hello/HelloSender.sol#37)
+	- messageId = router.ccipSend(_destinationChainSelector,message) (src/examples/hello/HelloSender.sol#39)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/examples/hello/HelloSender.sol#41)
+Reentrancy in SendV1._sendMessage(uint64,address,uint256,uint256,uint64,address) (src/v1/SendV1.sol#28-59):
+	External calls:
+	- IERC20(linkToken).approve(address(router),fee) (src/v1/SendV1.sol#51)
+	- IERC20(bnmToken).approve(address(router),amount) (src/v1/SendV1.sol#52)
+	- messageId = router.ccipSend(intermediaryChainSelector,message) (src/v1/SendV1.sol#54)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/v1/SendV1.sol#56)
+Reentrancy in VirtualHop.sendMessage(uint256,uint256,VirtualHop.Hop[]) (src/VirtualHop.sol#28-36):
+	External calls:
+	- messageId = _encodeDataSendMessage(amount,gasLimit,hops) (src/VirtualHop.sol#33)
+		- ! IERC20(linkToken).approve(address(router),fee) (src/Sender.sol#43)
+		- ! IERC20(bnmToken).approve(address(router),amount) (src/Sender.sol#47)
+		- messageId = router.ccipSend(chainSelector,message) (src/Sender.sol#51)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/VirtualHop.sol#34)
+Reentrancy in VirtualHop.sendMessage(uint64,address,uint256,uint256,uint64,address) (src/v2/VirtualHop.sol#34-46):
+	External calls:
+	- messageId = _sendMessage(chainSelector,receiver,amount,gasLimit,destination) (src/v2/VirtualHop.sol#43)
+		- IERC20(linkToken).approve(address(router),fee) (src/v2/Sender.sol#37)
+		- IERC20(bnmToken).approve(address(router),amount) (src/v2/Sender.sol#38)
+		- messageId = router.ccipSend(chainSelector,message) (src/v2/Sender.sol#40)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/v2/VirtualHop.sol#44)
+Reentrancy in VirtualHopV3.sendMessage(uint256,uint256,VirtualHopV3.Hop[]) (src/v3/VirtualHopV3.sol#38-52):
+	External calls:
+	- messageId = _sendMessage(nextHop.chainSelector,nextHop.receiver,amount,gasLimit,hopData) (src/v3/VirtualHopV3.sol#48)
+		- IERC20(linkToken).approve(address(router),fee) (src/v3/SenderV3.sol#37)
+		- IERC20(bnmToken).approve(address(router),amount) (src/v3/SenderV3.sol#38)
+		- messageId = router.ccipSend(chainSelector,message) (src/v3/SenderV3.sol#40)
+	Event emitted after the call(s):
+	- MessageSent(messageId) (src/v3/VirtualHopV3.sol#49)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['0.8.19', '^0.8.0']
+	- 0.8.19 (src/Sender.sol#2)
+	- 0.8.19 (src/VirtualHop.sol#2)
+	- 0.8.19 (src/examples/EncodeStruct.sol#2)
+	- 0.8.19 (src/examples/Sender.sol#2)
+	- 0.8.19 (src/examples/hello/HelloSender.sol#2)
+	- 0.8.19 (src/examples/hello/SendHello.sol#2)
+	- 0.8.19 (src/v1/Fee.sol#2)
+	- 0.8.19 (src/v1/HopV1.sol#2)
+	- 0.8.19 (src/v1/SendV1.sol#2)
+	- 0.8.19 (src/v2/Sender.sol#2)
+	- 0.8.19 (src/v2/VirtualHop.sol#2)
+	- 0.8.19 (src/v3/SenderV3.sol#2)
+	- 0.8.19 (src/v3/VirtualHopV3.sol#2)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/applications/CCIPReceiver.sol#2)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol#2)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol#2)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol#2)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/token/ERC20/IERC20.sol#4)
+	- ^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/utils/introspection/IERC165.sol#4)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Sender._createCCIPMessage(address,string,address,uint256,address) (src/examples/Sender.sol#53-76) is never used and should be removed
+Sender._sendMessage(uint64,address,address,uint256,address,string) (src/examples/Sender.sol#20-51) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+INFO:Detectors:
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/applications/CCIPReceiver.sol#2) allows old versions
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IAny2EVMMessageReceiver.sol#2) allows old versions
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/interfaces/IRouterClient.sol#2) allows old versions
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/ccip/libraries/Client.sol#2) allows old versions
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/token/ERC20/IERC20.sol#4) allows old versions
+Pragma version^0.8.0 (node_modules/@chainlink/contracts-ccip/src/v0.8/vendor/openzeppelin-solidity/v4.8.0/utils/introspection/IERC165.sol#4) allows old versions
+Pragma version0.8.19 (src/Sender.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/VirtualHop.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/examples/EncodeStruct.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/examples/Sender.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/examples/hello/HelloSender.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/examples/hello/SendHello.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v1/Fee.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v1/HopV1.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v1/SendV1.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v2/Sender.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v2/VirtualHop.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v3/SenderV3.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+Pragma version0.8.19 (src/v3/VirtualHopV3.sol#2) necessitates a version too recent to be trusted. Consider deploying with 0.8.18.
+solc-0.8.19 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Function SendV1._sendMessage(uint64,address,uint256,uint256,uint64,address) (src/v1/SendV1.sol#28-59) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Fee.router (src/v1/Fee.sol#9) should be immutable 
+HelloSender.router (src/examples/hello/HelloSender.sol#10) should be immutable 
+Sender.router (src/examples/Sender.sol#10) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:. analyzed (19 contracts with 93 detectors), 60 result(s) found

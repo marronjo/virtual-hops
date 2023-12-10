@@ -1,0 +1,165 @@
+slither . --print contract-summary
+
+INFO:Printers:
++ Contract CCIPReceiver
+  - From CCIPReceiver
+    - _ccipReceive(Client.Any2EVMMessage) (internal)
+    - ccipReceive(Client.Any2EVMMessage) (external)
+    - constructor(address) (internal)
+    - getRouter() (public)
+    - supportsInterface(bytes4) (public)
+
++ Contract IAny2EVMMessageReceiver
+  - From IAny2EVMMessageReceiver
+    - ccipReceive(Client.Any2EVMMessage) (external)
+
++ Contract IRouterClient (Most derived contract)
+  - From IRouterClient
+    - ccipSend(uint64,Client.EVM2AnyMessage) (external)
+    - getFee(uint64,Client.EVM2AnyMessage) (external)
+    - getSupportedTokens(uint64) (external)
+    - isChainSupported(uint64) (external)
+
++ Contract Client (Most derived contract)
+  - From Client
+    - _argsToBytes(Client.EVMExtraArgsV1) (internal)
+
++ Contract IERC20 (Most derived contract)
+  - From IERC20
+    - allowance(address,address) (external)
+    - approve(address,uint256) (external)
+    - balanceOf(address) (external)
+    - totalSupply() (external)
+    - transfer(address,uint256) (external)
+    - transferFrom(address,address,uint256) (external)
+
++ Contract IERC165
+  - From IERC165
+    - supportsInterface(bytes4) (external)
+
++ Contract Sender
+  - From Sender
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - constructor(address,address,address) (internal)
+
++ Contract VirtualHop (Most derived contract)
+  - From Sender
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+  - From CCIPReceiver
+    - ccipReceive(Client.Any2EVMMessage) (external)
+    - constructor(address) (internal)
+    - getRouter() (public)
+    - supportsInterface(bytes4) (public)
+  - From VirtualHop
+    - _ccipReceive(Client.Any2EVMMessage) (internal)
+    - _encodeDataSendMessage(uint256,uint256,VirtualHop.Hop[]) (private)
+    - _leftShift(VirtualHop.Hop[]) (private)
+    - constructor(address,address,address) (public)
+    - receive() (external)
+    - sendMessage(uint256,uint256,VirtualHop.Hop[]) (external)
+
++ Contract EncodeStruct (Most derived contract)
+  - From EncodeStruct
+    - decodeStruct() (public)
+    - encodeStruct() (public)
+
++ Contract Sender (Most derived contract)
+  - From Sender
+    - _createCCIPMessage(address,string,address,uint256,address) (internal)
+    - _sendMessage(uint64,address,address,uint256,address,string) (internal)
+    - constructor(address,address) (internal)
+
++ Contract HelloSender
+  - From HelloSender
+    - _createCCIPMessage(address,string,address) (internal)
+    - _sendMessage(uint64,address,address,string) (internal)
+    - constructor(address) (internal)
+
++ Contract SendHello (Most derived contract)
+  - From HelloSender
+    - _createCCIPMessage(address,string,address) (internal)
+    - _sendMessage(uint64,address,address,string) (internal)
+    - constructor(address) (internal)
+  - From SendHello
+    - constructor(address,address,uint64) (public)
+    - sendMessage() (external)
+
++ Contract Fee (Most derived contract)
+  - From Fee
+    - _createCCIPMessage(address,string,address,uint256,address) (internal)
+    - constructor(address,address,address) (public)
+    - getFee(uint64,uint256,address) (external)
+
++ Contract HopV1 (Most derived contract)
+  - From CCIPReceiver
+    - ccipReceive(Client.Any2EVMMessage) (external)
+    - constructor(address) (internal)
+    - getRouter() (public)
+    - supportsInterface(bytes4) (public)
+  - From HopV1
+    - _ccipReceive(Client.Any2EVMMessage) (internal)
+    - _createCCIPMessage(address,string,uint256) (internal)
+    - _sendMessage(uint64,address,uint256) (internal)
+    - constructor(address,address,address) (public)
+    - receive() (external)
+
++ Contract SendV1 (Most derived contract)
+  - From SendV1
+    - _createCCIPMessage(address,string,uint256,uint256) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,uint64,address) (external)
+    - constructor(address,address,address) (public)
+    - receive() (external)
+
++ Contract Sender
+  - From Sender
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - constructor(address,address,address) (internal)
+
++ Contract VirtualHop (Most derived contract)
+  - From Sender
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+  - From CCIPReceiver
+    - ccipReceive(Client.Any2EVMMessage) (external)
+    - constructor(address) (internal)
+    - getRouter() (public)
+    - supportsInterface(bytes4) (public)
+  - From VirtualHop
+    - _ccipReceive(Client.Any2EVMMessage) (internal)
+    - constructor(address,address,address) (public)
+    - getFee(uint64,address,uint256,uint256,uint64,address) (external)
+    - receive() (external)
+    - sendMessage(uint64,address,uint256,uint256,uint64,address) (external)
+
++ Contract SenderV3
+  - From SenderV3
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - constructor(address,address,address) (internal)
+
++ Contract VirtualHopV3 (Most derived contract)
+  - From SenderV3
+    - _createCCIPMessage(address,bytes,uint256,uint256) (private)
+    - _getFeeMessage(uint64,address,uint256,uint256,bytes) (internal)
+    - _sendMessage(uint64,address,uint256,uint256,bytes) (internal)
+  - From CCIPReceiver
+    - ccipReceive(Client.Any2EVMMessage) (external)
+    - constructor(address) (internal)
+    - getRouter() (public)
+    - supportsInterface(bytes4) (public)
+  - From VirtualHopV3
+    - _ccipReceive(Client.Any2EVMMessage) (internal)
+    - constructor(address,address,address) (public)
+    - leftShift(VirtualHopV3.Hop[]) (private)
+    - receive() (external)
+    - sendMessage(uint256,uint256,VirtualHopV3.Hop[]) (external)
+
+INFO:Slither:. analyzed (19 contracts)

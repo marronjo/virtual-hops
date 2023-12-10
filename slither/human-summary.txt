@@ -1,0 +1,38 @@
+slither . --print human-summary
+
+INFO:Printers:
+Compiled with Foundry
+Total number of contracts in source files: 19
+Source lines of code (SLOC) in source files: 812
+Number of  assembly lines: 0
+Number of optimization issues: 3
+Number of informational issues: 24
+Number of low issues: 16
+Number of medium issues: 15
+Number of high issues: 2
+ERCs: ERC20, ERC165
+
++---------------+-------------+--------+--------------------+--------------+--------------------+
+| Name          | # functions |   ERCS |         ERC20 info | Complex code |           Features |
++---------------+-------------+--------+--------------------+--------------+--------------------+
+| IRouterClient |           4 |        |                    |           No |        Receive ETH |
+| Client        |           2 |        |                    |           No |                    |
+| IERC20        |           6 |  ERC20 |         No Minting |           No |                    |
+|               |             |        | Approve Race Cond. |              |                    |
+|               |             |        |                    |              |                    |
+| VirtualHop    |          17 | ERC165 |                    |           No |        Receive ETH |
+|               |             |        |                    |              | Tokens interaction |
+| EncodeStruct  |           2 |        |                    |           No |                    |
+| Sender        |           3 |        |                    |           No | Tokens interaction |
+| SendHello     |           5 |        |                    |           No | Tokens interaction |
+| Fee           |           3 |        |                    |           No |                    |
+| HopV1         |          12 | ERC165 |                    |           No |        Receive ETH |
+|               |             |        |                    |              | Tokens interaction |
+| SendV1        |           4 |        |                    |           No |        Receive ETH |
+|               |             |        |                    |              | Tokens interaction |
+| VirtualHop    |          16 | ERC165 |                    |           No |        Receive ETH |
+|               |             |        |                    |              | Tokens interaction |
+| VirtualHopV3  |          16 | ERC165 |                    |           No |        Receive ETH |
+|               |             |        |                    |              | Tokens interaction |
++---------------+-------------+--------+--------------------+--------------+--------------------+
+INFO:Slither:. analyzed (19 contracts)
